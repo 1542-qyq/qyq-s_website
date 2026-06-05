@@ -1,0 +1,275 @@
+/* ========================================
+   绿色复古风格 - 主题配色与全局样式
+   ======================================== */
+
+:root {
+    --bg-main: #e8e4d8;
+    --bg-card: #f0ece3;
+    --bg-section: #dcd8cc;
+    --color-primary: #4a7a4a;
+    --color-secondary: #3a5a3a;
+    --color-accent: #8a7a6b;
+    --text-main: #2d2d26;
+    --text-secondary: #8a8678;
+    --border-light: #c8c4b8;
+    --border-dark: #a8a498;
+    --shadow-color: #b8b4a8;
+    --card-radius: 8px;
+}
+
+/* ========================================
+   基础样式
+   ======================================== */
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+#wrapper {
+    background-color: var(--bg-main);
+}
+
+/* ========================================
+   视角切换按钮样式
+   ======================================== */
+
+.perspective-toggle {
+    display: flex;
+    gap: 12px;
+    margin: 20px 0;
+}
+
+.toggle-btn {
+    padding: 10px 20px;
+    border: 2px solid var(--border-light);
+    border-radius: 25px;
+    background-color: var(--bg-card);
+    color: var(--text-secondary);
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.toggle-btn:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+}
+
+.toggle-btn.active {
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+    color: #fff;
+}
+
+/* ========================================
+   动态文案样式
+   ======================================== */
+
+.subtitle,
+.description {
+    transition: opacity 0.3s ease;
+}
+
+/* ========================================
+   技能标签样式
+   ======================================== */
+
+.skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.skill-tag {
+    padding: 6px 14px;
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-light);
+    border-radius: 20px;
+    font-size: 13px;
+    color: var(--text-secondary);
+    transition: all 0.3s ease;
+}
+
+.skill-tag[data-category="core"] {
+    background-color: rgba(74, 122, 74, 0.1);
+    border-color: rgba(74, 122, 74, 0.3);
+    color: var(--color-primary);
+}
+
+.skill-tag.faded {
+    opacity: 0.3;
+}
+
+/* ========================================
+   项目卡片样式
+   ======================================== */
+
+.posts {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 2em !important;
+    margin: 0 !important;
+    width: 100% !important;
+}
+
+.posts article {
+    background: var(--bg-card);
+    border-radius: var(--card-radius);
+    border: 1px solid var(--border-light);
+    box-shadow: 2px 2px 0 var(--shadow-color);
+    display: flex !important;
+    flex-direction: column !important;
+    height: 700px !important;
+    width: calc(50% - 1em) !important;
+    min-width: 300px !important;
+    margin: 0 !important;
+    position: relative !important;
+}
+
+.posts article:before,
+.posts article:after {
+    display: none !important;
+}
+
+.posts article:hover {
+    transform: translate(1px, 1px);
+    border-color: var(--border-dark);
+    box-shadow: 1px 1px 0 var(--shadow-color);
+}
+
+.posts article .image {
+    flex-shrink: 0;
+}
+
+.posts article .image img {
+    height: 200px !important;
+    object-fit: cover;
+    width: 100% !important;
+}
+
+.posts article .project-header {
+    flex-shrink: 0;
+    padding-bottom: 0.5em;
+}
+
+.posts article .project-meta {
+    flex-shrink: 0;
+    padding-bottom: 0.5em;
+}
+
+.posts article .project-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    transition: opacity 0.3s ease;
+}
+
+.posts article .actions {
+    flex-shrink: 0;
+    margin-top: auto !important;
+    padding-top: 1em;
+}
+
+.posts article h3 {
+    color: var(--text-main);
+}
+
+.posts article .project-date {
+    color: var(--text-secondary);
+}
+
+.posts article .project-role {
+    color: var(--color-primary);
+}
+
+.posts article h4 {
+    color: var(--color-secondary);
+}
+
+.posts article p, .posts article li {
+    color: var(--text-secondary);
+}
+
+@media (max-width: 980px) {
+    .posts article {
+        width: 100% !important;
+        height: auto !important;
+    }
+}
+
+/* ========================================
+   软著信息样式
+   ======================================== */
+
+.software-copyright {
+    background: rgba(74, 122, 74, 0.08);
+    border: 1px solid rgba(74, 122, 74, 0.3);
+    border-radius: var(--card-radius);
+    padding: 1.5em;
+    margin-top: 1.5em;
+    text-align: center;
+}
+
+.software-copyright h3 {
+    color: var(--color-primary);
+    margin-bottom: 0.5em;
+}
+
+.software-copyright p {
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+.copyright-number {
+    font-size: 0.9em;
+    font-family: monospace, 'Courier New', Courier;
+    margin-top: 0.25em !important;
+}
+
+/* ========================================
+   极简视角切换器样式
+   ======================================== */
+
+.view-switcher {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+    font-size: 0.9em;
+    margin-right: 1em;
+}
+
+.view-switcher a {
+    color: #9fa3a6;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.view-switcher a:hover {
+    color: #3d3d3d;
+    text-decoration: underline;
+}
+
+.view-switcher a.active {
+    color: #3d3d3d;
+    font-weight: 600;
+}
+
+.view-switcher .divider {
+    color: #d0d0d0;
+}
+
+/* ========================================
+   更多项目区域样式
+   ======================================== */
+
+.posts.more-projects {
+  display: none !important;
+}
+
+.posts.more-projects.expanded {
+  display: flex !important;
+}

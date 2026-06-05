@@ -1,0 +1,199 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>猫咪店铺一站式服务平台 - 邱彦琦的作品集</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta name="description" content="邱彦琦的作品集 - 猫咪店铺一站式服务平台" />
+		<link rel="stylesheet" href="../../assets/css/main.css" />
+		<link rel="stylesheet" href="../../assets/css/vintage.css" />
+		<link rel="stylesheet" href="../../assets/css/project-detail.css" />
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+	</head>
+	<body class="is-preload">
+
+		<div id="wrapper">
+
+			<div id="main">
+				<div class="inner">
+
+					<header id="header">
+						<a href="../../dev.html" class="logo"><strong>邱彦琦的作品集</strong></a>
+
+						<ul class="icons">
+							<li><a href="https://github.com/1542-qyq/cat_shop" class="icon brands fa-github"><span class="label">Github</span></a></li>
+							<li><a href="https://www.kaggle.com/yanqiqiu" class="icon brands fa-kaggle"><span class="label">Kaggle</span></a></li>
+							<li><a href="mailto:Q13650089338@outlook.com" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+						</ul>
+					</header>
+
+					<div class="project-hero">
+						<h1>猫咪店铺一站式服务平台</h1>
+						<p class="project-subtitle">Spring Boot 电商后台管理系统</p>
+						<div class="project-meta">
+							<span>📅 2025.05 - 2025.07</span>
+							<span>👤 后台开发</span>
+							<span>👥 2人团队</span>
+						</div>
+					</div>
+
+					<section class="view-section">
+						<h2>研发视角</h2>
+
+						<h3>1. 项目概览</h3>
+						<div class="content-block">
+							<h4>一句话定位</h4>
+							<p>2人团队完成的电商平台，我负责后台开发，通过清晰的MVC分层架构和统一的权限控制，实现了商品、分类、订单、用户管理功能</p>
+						</div>
+						<p><strong>时间周期：</strong>2025.05 - 2025.07</p>
+						<p><strong>我的角色：</strong>后台开发</p>
+						<p><strong>团队规模：</strong>2人团队（我负责后台）</p>
+
+						<h3>2. 技术架构</h3>
+						<div class="content-block">
+							<h4>系统架构</h4>
+							<p>Controller层（控制器） → Service层（业务逻辑） → Repository/Mapper层（数据访问） → MySQL数据库</p>
+						</div>
+						<div class="content-block">
+							<h4>技术栈</h4>
+							<div class="tech-stack">
+								<span class="tech-tag">框架：Spring Boot 2.7.18</span>
+								<span class="tech-tag">ORM：MyBatis-Plus 3.4.3.4</span>
+								<span class="tech-tag">模板引擎：Thymeleaf</span>
+								<span class="tech-tag">数据库：MySQL 8.0.44</span>
+								<span class="tech-tag">构建工具：Maven</span>
+							</div>
+						</div>
+						<div class="content-block">
+							<h4>代码结构</h4>
+							<pre><code>src/main/java/com/ch/ch9/
+├── controller/admin/          # 后台控制器（5个）
+│   ├── AdminBaseController.java   # 基类-权限控制
+│   ├── AdminController.java       # 管理员登录
+│   ├── GoodsController.java       # 商品管理
+│   ├── GoodsTypeController.java   # 分类管理
+│   ├── OrderController.java       # 订单管理
+│   └── UserController.java        # 用户管理
+├── service/admin/             # 后台业务层
+├── repository/admin/          # 后台数据访问层
+├── mapper/admin/              # MyBatis Mapper
+└── entity/                    # 实体类</code></pre>
+						</div>
+
+						<h3>3. 功能模块</h3>
+						<div class="content-block">
+							<h4>模块1：管理员登录与权限控制</h4>
+							<p>通过@ModelAttribute注解，在所有后台方法执行前检查登录状态；Session中存储auser对象，未登录则抛出NoLoginException；白名单机制：登录页面和登录处理跳过检查</p>
+						</div>
+						<div class="content-block">
+							<h4>模块2：商品管理</h4>
+							<p>商品列表（支持按名称搜索）、添加商品（含图片上传，双路径保存：src+target）、编辑商品、删除商品（同时删除图片文件+重置自增ID）</p>
+							<div class="highlight-box">
+								<p>💡 技术亮点：图片上传双路径保存，既保证开发时立即生效，又保证重启后不丢失</p>
+							</div>
+						</div>
+						<div class="content-block">
+							<h4>模块3：商品分类管理</h4>
+							<p>分类的增删改查，预设分类：家电、水果、文具、服装、鲜花</p>
+						</div>
+						<div class="content-block">
+							<h4>模块4：订单管理</h4>
+							<p>订单列表（支持按用户ID筛选）、添加订单、编辑订单（可修改状态）、删除订单；订单状态：待付款、已付款、已发货、已完成、已取消</p>
+						</div>
+						<div class="content-block">
+							<h4>模块5：用户管理</h4>
+							<p>前台用户的增删改查</p>
+						</div>
+
+						<h3>4. 系统截图</h3>
+						<div class="gallery-section">
+							<div class="gallery-grid">
+								<figure class="gallery-item">
+									<img src="../../images/cat_shop/backend_admin_LogIn.png" alt="后台登录">
+									<figcaption>后台登录页</figcaption>
+								</figure>
+								<figure class="gallery-item">
+									<img src="../../images/cat_shop/admin_index.png" alt="后台首页">
+									<figcaption>后台首页</figcaption>
+								</figure>
+								<figure class="gallery-item">
+									<img src="../../images/cat_shop/admin_type_list.png" alt="分类管理">
+									<figcaption>分类管理</figcaption>
+								</figure>
+								<figure class="gallery-item">
+									<img src="../../images/cat_shop/admin_type_add.png" alt="添加分类">
+									<figcaption>添加分类</figcaption>
+								</figure>
+								<figure class="gallery-item">
+									<img src="../../images/cat_shop/admin_type_edit.png" alt="编辑分类">
+									<figcaption>编辑分类</figcaption>
+								</figure>
+								<figure class="gallery-item">
+									<img src="../../images/cat_shop/admin_type_search.png" alt="搜索分类">
+									<figcaption>搜索分类</figcaption>
+								</figure>
+							</div>
+						</div>
+
+						<h3>5. 数据库设计</h3>
+						<div class="content-block">
+							<h4>核心表结构</h4>
+							<ul>
+								<li><strong>ausertable</strong>：管理员表（id, aname, apwd）</li>
+								<li><strong>goodstypetable</strong>：商品分类表（id, typename）</li>
+								<li><strong>goodstable</strong>：商品表（id, gname, gprice, gstore, gpicture, goodstype_id）</li>
+								<li><strong>orderbasetable</strong>：订单主表（id, busertable_id, amount, order_date, status）</li>
+								<li><strong>orderdetail</strong>：订单详情表（id, orderbasetable_id, goodstable_id, shoppingnum）</li>
+								<li><strong>busertable</strong>：前台用户表（id, bemail, bpwd, userName）</li>
+							</ul>
+						</div>
+
+						<h3>6. 成果展示</h3>
+						<div class="content-block">
+							<h4>功能成果</h4>
+							<ul>
+								<li>✅ 管理员登录与权限：Session验证，白名单机制</li>
+								<li>✅ 商品管理：CRUD+图片上传+级联删除</li>
+								<li>✅ 分类管理：CRUD</li>
+								<li>✅ 订单管理：CRUD+状态流转</li>
+								<li>✅ 用户管理：CRUD</li>
+							</ul>
+						</div>
+						<div class="content-block">
+							<h4>技术亮点</h4>
+							<ol>
+								<li>权限控制基类：AdminBaseController统一处理登录验证</li>
+								<li>图片双路径保存：解决开发环境静态资源刷新问题</li>
+								<li>MyBatis-Plus应用：简化CRUD操作，提升开发效率</li>
+								<li>事务管理：@Transactional注解保证数据一致性</li>
+							</ol>
+						</div>
+						<div class="highlight-box">
+							<p>🏆 完整后台管理系统，包含13个后台页面</p>
+						</div>
+
+					</section>
+
+					<div class="project-nav">
+						<div class="back-link">
+							<a href="../../dev.html">← 返回首页</a>
+						</div>
+						<div class="nav-links">
+							<a href="../product/cat-shop.html">产品视角</a>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+		</div>
+
+		<script src="../../assets/js/jquery.min.js"></script>
+		<script src="../../assets/js/browser.min.js"></script>
+		<script src="../../assets/js/breakpoints.min.js"></script>
+		<script src="../../assets/js/util.js"></script>
+		<script src="../../assets/js/main.js"></script>
+
+	</body>
+</html>

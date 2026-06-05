@@ -1,0 +1,803 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>碳智优——数字化烧嘴管家 - 邱彦琦的产品作品集</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <meta name="description" content="邱彦琦的产品作品集 - 碳智优数字化烧嘴管家PRD与产品设计方案" />
+    <link rel="stylesheet" href="../../assets/css/main.css" />
+    <link rel="stylesheet" href="../../assets/css/vintage.css" />
+    <link rel="stylesheet" href="../../assets/css/project-detail.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* 仅新增图片占位和表格样式，不覆盖原有样式 */
+        .img-placeholder {
+            background: var(--bg-main);
+            border: 2px dashed var(--border-light);
+            border-radius: var(--card-radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+            font-size: 0.9em;
+            min-height: 200px;
+            margin: 1em 0;
+            text-align: center;
+            padding: 2em;
+            flex-direction: column;
+            gap: 0.5em;
+        }
+        .img-placeholder.large {
+            min-height: 400px;
+        }
+        .img-placeholder.small {
+            min-height: 150px;
+        }
+        .img-placeholder .placeholder-icon {
+            font-size: 2.5em;
+            margin-bottom: 0.3em;
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1em 0;
+            font-size: 0.9em;
+        }
+        .data-table th {
+            background: var(--bg-section);
+            color: var(--text-main);
+            padding: 10px;
+            text-align: left;
+            border-bottom: 2px solid var(--border-light);
+        }
+        .data-table td {
+            padding: 8px 10px;
+            border-bottom: 1px solid var(--border-light);
+            color: var(--text-secondary);
+        }
+        .data-table tr:nth-child(even) {
+            background: var(--bg-main);
+        }
+
+        .metric-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1em;
+            margin: 1em 0;
+        }
+        .metric-card {
+            background: var(--bg-main);
+            border: 1px solid var(--border-light);
+            border-radius: var(--card-radius);
+            padding: 1.5em;
+            text-align: center;
+        }
+        .metric-card .number {
+            font-size: 2em;
+            font-weight: bold;
+            color: var(--color-primary);
+        }
+        .metric-card .label {
+            color: var(--text-secondary);
+            font-size: 0.85em;
+            margin-top: 0.5em;
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 2em;
+            margin: 1em 0;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 6px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--border-light);
+        }
+        .timeline-item {
+            position: relative;
+            margin-bottom: 1.5em;
+            padding-left: 1em;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -1.5em;
+            top: 0.4em;
+            width: 10px;
+            height: 10px;
+            background: var(--color-primary);
+            border-radius: 50%;
+        }
+        .timeline-item .version {
+            font-weight: bold;
+            color: var(--color-primary);
+        }
+        .timeline-item .time {
+            color: var(--text-secondary);
+            font-size: 0.85em;
+            margin-left: 0.5em;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.75em;
+            font-weight: 500;
+            margin-right: 0.3em;
+        }
+        .tag-p0 {
+            background: #dc3545;
+            color: white;
+        }
+        .tag-p1 {
+            background: #fd7e14;
+            color: white;
+        }
+        .tag-p2 {
+            background: var(--text-secondary);
+            color: white;
+        }
+
+        .competitor-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1em 0;
+            font-size: 0.9em;
+        }
+        .competitor-table th {
+            background: var(--bg-section);
+            color: var(--text-main);
+            padding: 10px;
+            text-align: left;
+            border-bottom: 2px solid var(--border-light);
+        }
+        .competitor-table td {
+            padding: 8px 10px;
+            border-bottom: 1px solid var(--border-light);
+            color: var(--text-secondary);
+        }
+        .competitor-table tr:nth-child(even) {
+            background: var(--bg-main);
+        }
+
+        .wireframe-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5em;
+            margin: 1em 0;
+        }
+        .wireframe-item {
+            background: var(--bg-main);
+            border: 1px solid var(--border-light);
+            border-radius: var(--card-radius);
+            padding: 1em;
+        }
+        .wireframe-item .img-placeholder {
+            margin: 0;
+        }
+        .wireframe-item figcaption {
+            text-align: center;
+            margin-top: 0.75em;
+            font-size: 0.9em;
+            color: var(--text-secondary);
+        }
+
+        .highlight-box {
+            background: var(--bg-section);
+            border-left: 4px solid var(--color-primary);
+            padding: 1em 1.5em;
+            border-radius: 0 var(--card-radius) var(--card-radius) 0;
+            margin: 1em 0;
+        }
+        .highlight-box p {
+            font-weight: bold;
+            margin: 0;
+        }
+        .highlight-box ul {
+            margin: 0.5em 0 0 1.2em;
+            padding: 0;
+        }
+    </style>
+</head>
+<body class="is-preload">
+
+    <div id="wrapper">
+        <div id="main">
+            <div class="inner">
+
+                <header id="header">
+                    <a href="../../index.html" class="logo"><strong>邱彦琦的产品作品集</strong></a>
+                    <ul class="icons">
+                        <li><a href="https://github.com/1542-qyq" class="icon brands fa-github"><span class="label">Github</span></a></li>
+                        <li><a href="https://www.kaggle.com/yanqiqiu" class="icon brands fa-kaggle"><span class="label">Kaggle</span></a></li>
+                        <li><a href="mailto:Q13650089338@outlook.com" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+                    </ul>
+                </header>
+
+                <div class="project-hero">
+                    <h1>碳智优——数字化烧嘴管家</h1>
+                    <p class="project-subtitle">工业物联网 · AI预测优化 · 窑炉燃烧数字化解决方案</p>
+                    <div class="project-meta">
+                        <span>📅 2025.08 - 2026.06</span>
+                        <span>👤 产品负责人</span>
+                        <span>👥 团队开发</span>
+                        <span>🏷️ B端产品方案</span>
+                    </div>
+                </div>
+
+                <section class="view-section">
+                    <h2>01 项目概览</h2>
+
+                    <div class="content-block">
+                        <h4>🎯 一句话定位</h4>
+                        <p>为陶瓷行业打造的<strong>数字化烧嘴管家</strong>，通过"智能硬件+AI预测模型+云平台"三位一体，实现单窑炉天然气节约率≥10%，燃烧效率提升至80%以上。</p>
+                    </div>
+
+                    <div class="content-block">
+                        <h4>💡 核心洞察</h4>
+                        <p>中国陶瓷行业年天然气消耗超<strong>200亿m³</strong>，窑炉能耗占生产成本30%-40%。传统燃烧控制依赖人工经验，调控粗放、响应滞后。本项目通过<strong>BiLG-BLS预测模型+自动PID调控+O2O运维</strong>，将"老师傅的经验"转化为"可复制的AI能力"，帮助陶瓷厂实现节能降耗与合规达标。</p>
+                    </div>
+
+                    <div class="gallery-section">
+                        <div class="gallery-grid single">
+                            <figure class="gallery-item full-width">
+                                <img src="../../images/carbon_smart/技术路线.png" alt="技术路线图">
+                                <figcaption>技术路线图：智能烧嘴+传感器+网关+BiLG-BLS模型+小程序+后台全链路</figcaption>
+                            </figure>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="view-section">
+                    <h2>02 市场分析与竞品洞察</h2>
+
+                    <div class="content-block">
+                        <h4>📈 市场背景</h4>
+                        <ul>
+                            <li>中国陶瓷行业年天然气消耗超<strong>200亿m³</strong>，窑炉能耗占生产成本30%-40%</li>
+                            <li>国家"双碳"政策驱动，陶瓷行业面临<strong>碳排放配额收紧</strong>与环保达标双重压力</li>
+                            <li>单条窑炉年运营成本<strong>400万-800万元</strong>，节能10%-15%即可带来显著经济效益</li>
+                            <li>工业物联网（IIoT）与AI预测技术在窑炉节能领域应用尚处早期，<strong>垂直数字化解决方案市场空白</strong></li>
+                        </ul>
+                    </div>
+
+                    
+
+                    <h3>竞品分析</h3>
+                    <table class="competitor-table">
+                        <tr>
+                            <th>竞品</th>
+                            <th>优势</th>
+                            <th>劣势</th>
+                            <th>我们的差异化</th>
+                        </tr>
+                        <tr>
+                            <td><strong>霍尼韦尔燃烧系统</strong></td>
+                            <td>国际品牌、技术成熟、品牌信任度高</td>
+                            <td>价格昂贵（单套50万+）、本土化服务弱、无AI预测</td>
+                            <td>✅ 国产化替代、AI智能预测、性价比优势</td>
+                        </tr>
+                        <tr>
+                            <td><strong>传统烧嘴制造商（国产）</strong></td>
+                            <td>价格低、渠道覆盖广</td>
+                            <td>无数字化能力、燃烧效率低（≈65%）、无远程监控</td>
+                            <td>✅ 硬件+软件一体化、数字化运维、效率提升至80%</td>
+                        </tr>
+                        <tr>
+                            <td><strong>通用工业物联网平台</strong></td>
+                            <td>平台能力强、接入设备多</td>
+                            <td>缺乏窑炉燃烧专业知识、模型通用性不足</td>
+                            <td>✅ 垂直深耕窑炉场景、BiLG-BLS专用模型、工艺闭环</td>
+                        </tr>
+                        <tr>
+                            <td><strong>陶瓷厂自建系统</strong></td>
+                            <td>定制化程度高</td>
+                            <td>开发成本高、维护困难、技术迭代慢</td>
+                            <td>✅ SaaS化部署、快速上线、持续迭代、专业算法支持</td>
+                        </tr>
+                    </table>
+
+                    
+                </section>
+
+                <section class="view-section">
+                    <h2>03 用户分析</h2>
+
+                    <div class="content-block">
+                        <h4>👤 核心用户画像（50%）</h4>
+                        <p><strong>陶瓷厂生产管理人员</strong> | 35-50岁 | 窑炉车间主任/生产经理/能源管理专员</p>
+                        <p>🔸 <strong>痛点</strong>：人工调控滞后、燃烧效率低（≈65%）、能耗成本高、环保压力大</p>
+                        <p>🔸 <strong>消费行为</strong>：决策周期长（需层层审批）、注重ROI、依赖数据说服、关注同行案例</p>
+                    </div>
+
+                    <div class="content-block">
+                        <h4>👤 次要用户画像（30%）</h4>
+                        <p><strong>陶瓷厂高层决策者</strong> | 45-60岁 | 厂长/总经理/能源总监</p>
+                        <p>🔸 <strong>痛点</strong>：缺乏能耗透明度、节能改造成本高、效果难量化</p>
+                        <p>🔸 <strong>消费行为</strong>：决策依赖ROI计算、同行案例、政府补贴政策</p>
+                    </div>
+
+                    
+
+                    <h3>核心使用场景</h3>
+
+                    <div class="content-block">
+                        <h4>场景一：生产管理人员日常监控（高频、核心场景）</h4>
+                        <ol>
+                            <li>打开微信小程序，查看今日能耗概览（天然气消耗、燃烧效率、温度曲线）</li>
+                            <li>发现3号窑炉燃烧效率下降至75%，点击查看详情</li>
+                            <li>查看<strong>BiLG-BLS模型预测</strong>：未来2小时效率将持续下降，建议调整空燃比</li>
+                            <li>点击"一键优化"，系统自动下发PID调节指令</li>
+                            <li>10分钟后查看优化效果，效率回升至80%</li>
+                            <li>收到系统推送的日报：今日节约天然气1,200m³，节约成本¥4,800</li>
+                        </ol>
+                    </div>
+
+                    <div class="content-block">
+                        <h4>场景二：高层决策者评估投资回报（月度、重决策场景）</h4>
+                        <ol>
+                            <li>登录PC端管理后台，查看"节能效益看板"</li>
+                            <li>本月累计节约天然气36,000m³，节约成本¥144,000</li>
+                            <li>查看ROI计算：系统投入¥150,000，预计<strong>10个月回本</strong></li>
+                            <li>导出月度节能报告，用于内部汇报和政府补贴申请</li>
+                            <li>查看同行业对比：本厂燃烧效率排名区域前20%</li>
+                        </ol>
+                    </div>
+
+                    <!-- 【占位】用户旅程地图 -->
+                    <div class="img-placeholder large">
+                        <span class="placeholder-icon">🗺️</span>
+                        <span>用户旅程地图：生产管理人员日常监控全流程（情绪曲线+触点+痛点+机会点）</span>
+                        <small>建议尺寸：1200×400px | 横轴：步骤 / 纵轴：情绪值</small>
+                    </div>
+                </section>
+
+                <section class="view-section">
+                    <h2>04 产品设计</h2>
+
+                    <h3>系统架构</h3>
+                    <pre><code>碳智优——数字化烧嘴管家
+                        ├── <strong>硬件层</strong>
+                        │   ├── 智能节能烧嘴（分段式喷火铜管 + 风叶优化）
+                        │   ├── 传感器集群（温度/流量/压力/烟气成分，RS-485接口）
+                        │   ├── PID气流调节模块（燃气/空气比例自动调节）
+                        │   └── 工业网关（数据采集、边缘计算、4G/WiFi上传）
+                        │
+                        ├── <strong>边缘计算层</strong>
+                        │   ├── 数据预处理（滤波、归一化、特征提取）
+                        │   ├── 本地缓存（断网时存储≥24小时数据）
+                        │   └── 轻量级推理（异常初筛、紧急调控）
+                        │
+                        ├── <strong>云平台层</strong>
+                        │   ├── 数据接入服务（MQTT/HTTP协议）
+                        │   ├── BiLG-BLS模型服务（VMD分解+LSTM+BiGRU异构双流+级联BLS）
+                        │   ├── 预测结果存储（时序数据库）
+                        │   ├── 预警引擎（规则引擎 + 模型预测双驱动）
+                        │   ├── 报告生成服务（日报/周报/月报）
+                        │   └── 设备管理服务（OTA升级、状态监控）
+                        │
+                        ├── <strong>应用层</strong>
+                        │   ├── 微信小程序（远程监测、预警接收、报告查看）
+                        │   ├── PC端客户后台（多窑炉管理、数据导出、合同管理）
+                        │   └── 管理后台（客户管理、设备管理、订单管理、模型管理）
+                        │
+                        └── <strong>通知服务</strong>
+                        ├── 微信小程序推送（异常预警、报告推送）
+                        ├── 短信通知（紧急故障）
+                        └── 邮件通知（月度报告、合同文件）</code></pre>
+
+                    <div class="gallery-section">
+                        <div class="gallery-grid single">
+                            <figure class="gallery-item full-width">
+                                <img src="../../images/carbon_smart/系统架构图.png" alt="系统架构图">
+                                <figcaption>系统架构图：五层架构+数据流向+关键组件</figcaption>
+                            </figure>
+                        </div>
+                    </div>
+
+                    <h3>核心功能设计亮点</h3>
+
+                    <div class="content-block">
+                        <h4>亮点一：BiLG-BLS预测模型——从"经验驱动"到"AI驱动"</h4>
+                        <ul>
+                            <li><strong>VMD变分模态分解</strong>：分离高频火焰脉动与低频热演变趋势</li>
+                            <li><strong>LSTM流</strong>：捕捉窑炉长周期热平衡惯性</li>
+                            <li><strong>BiGRU流</strong>：实时锁定风媒配比的瞬时物理耦合</li>
+                            <li><strong>DCA自适应级联BLS</strong>：自动匹配最优映射层深度，计算资源消耗低</li>
+                            <li>预测准确率目标<strong>R² ≥ 0.919（92%）</strong>，推理时间≤5秒/次</li>
+                        </ul>
+                    </div>
+
+                    <div class="content-block">
+                        <h4>亮点二：三级预警+自动调控闭环</h4>
+                        <table class="data-table">
+                            <tr>
+                                <th>预警级别</th>
+                                <th>触发条件</th>
+                                <th>通知方式</th>
+                                <th>响应要求</th>
+                            </tr>
+                            <tr>
+                                <td>🔴 紧急</td>
+                                <td>温度超限±50℃ / 燃气泄漏 / 设备离线</td>
+                                <td>小程序推送+短信+电话</td>
+                                <td>15分钟内响应，自动触发PID调控</td>
+                            </tr>
+                            <tr>
+                                <td>🟡 重要</td>
+                                <td>效率下降>5% / 排放超标 / 传感器故障</td>
+                                <td>小程序推送+短信</td>
+                                <td>1小时内响应，提供调控建议</td>
+                            </tr>
+                            <tr>
+                                <td>🟢 提示</td>
+                                <td>效率轻微波动 / 维护提醒 / 报告生成</td>
+                                <td>小程序推送</td>
+                                <td>24小时内查看</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="content-block">
+                        <h4>亮点三：硬件+软件+服务一体化（O2O闭环）</h4>
+                        <ul>
+                            <li><strong>硬件销售</strong>（智能节能烧嘴¥1,400/支）：建立客户信任与数据触点</li>
+                            <li><strong>数字化服务</strong>（订阅制/按效果收费）：客户生命周期价值（LTV）大</li>
+                            <li><strong>线下运维</strong>（技术团队）：安装调试、定期巡检、故障处理</li>
+                            <li>协同效应：安装烧嘴 → 接入平台 → 持续数据服务 → 工艺优化 → 复购/升级</li>
+                        </ul>
+                    </div>
+
+                    <div class="content-block">
+                        <h4>亮点四：合作生态与多方角色设计</h4>
+                        <table class="data-table">
+                            <tr>
+                                <th>合作方</th>
+                                <th>角色</th>
+                                <th>责任</th>
+                            </tr>
+                            <tr>
+                                <td><strong>平台（我方）</strong></td>
+                                <td>系统开发、算法研发、品牌推广、售后技术支持</td>
+                                <td>BiLG-BLS模型训练与迭代、小程序/云平台开发、客户培训、故障远程诊断</td>
+                            </tr>
+                            <tr>
+                                <td><strong>陶瓷厂客户</strong></td>
+                                <td>烧嘴使用方、数据提供方、效果验证方</td>
+                                <td>提供窑炉运行数据、配合安装调试、按约定支付费用、反馈使用体验</td>
+                            </tr>
+                            <tr>
+                                <td><strong>烧嘴制造商合作伙伴</strong></td>
+                                <td>硬件代工/联合生产、渠道分销</td>
+                                <td>按标准生产智能烧嘴、质量把控、区域销售推广</td>
+                            </tr>
+                            <tr>
+                                <td><strong>传感器/工业网关供应商</strong></td>
+                                <td>数据采集设备供应</td>
+                                <td>提供RS-485接口传感器、工业网关、技术支持</td>
+                            </tr>
+                        </table>
+                    </div>
+                </section>
+
+                <section class="view-section">
+                    <h2>05 核心流程设计</h2>
+
+                    <h3>数据采集与预测流程</h3>
+                    <!-- 【占位】数据采集与预测流程图 -->
+                    <div class="img-placeholder large">
+                        <span class="placeholder-icon">🔄</span>
+                        <span>数据采集与预测流程图：传感器采集→网关预处理→云平台→BiLG-BLS推理→预测正常/异常分支→自动调控/预警推送</span>
+                        <small>建议尺寸：1000×500px</small>
+                    </div>
+
+                    <h3>异常预警处理流程</h3>
+                    <!-- 【占位】异常预警处理流程图 -->
+                    <div class="img-placeholder large">
+                        <span class="placeholder-icon">⚖️</span>
+                        <span>异常预警处理流程图：检测异常→判断级别→紧急/重要/提示分支→自动调控/推送建议/通知→确认处理→记录日志</span>
+                        <small>建议尺寸：900×500px</small>
+                    </div>
+
+                    <h3>客户签约与部署流程</h3>
+                    <!-- 【占位】客户签约与部署流程图 -->
+                    <div class="img-placeholder">
+                        <span class="placeholder-icon">🏪</span>
+                        <span>客户签约与部署流程图：需求调研→方案设计→商务谈判→合同签署→硬件生产→现场安装→系统调试→客户培训→正式上线→持续服务</span>
+                        <small>建议尺寸：800×400px</small>
+                    </div>
+
+                    <h3>节能效益核算流程</h3>
+                    <!-- 【占位】节能效益核算流程图 -->
+                    <div class="img-placeholder">
+                        <span class="placeholder-icon">📊</span>
+                        <span>节能效益核算流程图：基线数据采集→建立能耗基准模型→正式运行→每日对比计算节约量→生成报告→客户确认→结算</span>
+                        <small>建议尺寸：800×350px</small>
+                    </div>
+                </section>
+
+                <section class="view-section">
+                    <h2>06 原型设计</h2>
+
+                    <h3>微信小程序原型</h3>
+                    <div class="wireframe-grid">
+                        <div class="wireframe-item">
+                            <div class="img-placeholder small">
+                                <span>小程序首页原型</span>
+                                <small>建议：375×667px</small>
+                            </div>
+                            <figcaption>首页：能耗概览 + 烧嘴状态 + 快捷入口 + 最新预警</figcaption>
+                        </div>
+                        <div class="wireframe-item">
+                            <div class="img-placeholder small">
+                                <span>实时监测页原型</span>
+                                <small>建议：375×800px</small>
+                            </div>
+                            <figcaption>实时监测：温度/流量曲线 + 当前数值 + 一键优化</figcaption>
+                        </div>
+                        <div class="wireframe-item">
+                            <div class="img-placeholder small">
+                                <span>预警中心页原型</span>
+                                <small>建议：375×700px</small>
+                            </div>
+                            <figcaption>预警中心：分级预警列表 + 处理确认 + 筛选</figcaption>
+                        </div>
+                        <div class="wireframe-item">
+                            <div class="img-placeholder small">
+                                <span>报告中心页原型</span>
+                                <small>建议：375×700px</small>
+                            </div>
+                            <figcaption>报告中心：日报/周报/月报查看 + PDF导出</figcaption>
+                        </div>
+                    </div>
+
+                    <h3>PC端客户后台原型</h3>
+                    <div class="wireframe-grid">
+                        <div class="wireframe-item">
+                            <div class="img-placeholder small">
+                                <span>客户后台首页</span>
+                                <small>建议：1440×900px</small>
+                            </div>
+                            <figcaption>PC端首页：能耗总览 + 窑炉状态 + 节能趋势 + 最新预警</figcaption>
+                        </div>
+                        <div class="wireframe-item">
+                            <div class="img-placeholder small">
+                                <span>窑炉监测详情页</span>
+                                <small>建议：1440×900px</small>
+                            </div>
+                            <figcaption>窑炉监测：多参数曲线 + 烧嘴状态网格 + 数据导出</figcaption>
+                        </div>
+                    </div>
+
+                    <h3>管理后台原型（平台运营端）</h3>
+                    <div class="wireframe-grid">
+                        <div class="wireframe-item">
+                            <div class="img-placeholder small">
+                                <span>客户管理页</span>
+                                <small>建议：1440×900px</small>
+                            </div>
+                            <figcaption>客户管理：陶瓷厂信息 + 合同期限 + 服务状态 + 筛选搜索</figcaption>
+                        </div>
+                        <div class="wireframe-item">
+                            <div class="img-placeholder small">
+                                <span>设备管理页</span>
+                                <small>建议：1440×900px</small>
+                            </div>
+                            <figcaption>设备管理：烧嘴/传感器/网关状态监控 + OTA升级 + 维护记录</figcaption>
+                        </div>
+                        <div class="wireframe-item">
+                            <div class="img-placeholder small">
+                                <span>订单管理页</span>
+                                <small>建议：1440×900px</small>
+                            </div>
+                            <figcaption>订单管理：硬件销售订单 + 服务订阅订单 + 收款记录</figcaption>
+                        </div>
+                        <div class="wireframe-item">
+                            <div class="img-placeholder small">
+                                <span>模型管理页</span>
+                                <small>建议：1440×900px</small>
+                            </div>
+                            <figcaption>模型管理：BiLG-BLS版本管理 + 效果评估 + A/B测试</figcaption>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="view-section">
+                    <h2>07 数据指标体系</h2>
+
+                    <div class="highlight-box">
+                        <p>🌟 <strong>北极星指标：单窑炉天然气节约率 ≥ 10%</strong></p>
+                        <p style="margin-top: 0.5em; font-weight: normal;">（改造前日均消耗 - 改造后日均消耗）/ 改造前日均消耗 —— 衡量产品核心价值和客户ROI</p>
+                    </div>
+
+                    <h3>核心指标看板</h3>
+                    <div class="metric-cards">
+                        <div class="metric-card">
+                            <div class="number">≥80%</div>
+                            <div class="label">燃烧效率</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="number">≥92%</div>
+                            <div class="label">预测准确率（R²）</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="number">≤30秒</div>
+                            <div class="label">异常预警响应时间</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="number">±5℃</div>
+                            <div class="label">温度波动控制</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="number">≥99.5%</div>
+                            <div class="label">系统可用性</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="number">≥80%</div>
+                            <div class="label">客户续约率</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="number">≥50</div>
+                            <div class="label">客户NPS满意度</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="number">≥¥50,000</div>
+                            <div class="label">单客户年均收入(ARPU)</div>
+                        </div>
+                    </div>
+
+                    <!-- 【占位】数据监控看板 -->
+                    <div class="img-placeholder">
+                        <span class="placeholder-icon">📊</span>
+                        <span>数据监控看板原型：核心指标趋势 + 节能效益趋势 + 模型效果监控</span>
+                        <small>建议尺寸：1200×600px</small>
+                    </div>
+
+                    <h3>关键埋点事件</h3>
+                    <table class="data-table">
+                        <tr>
+                            <th>事件名</th>
+                            <th>触发时机</th>
+                            <th>用途</th>
+                        </tr>
+                        <tr><td><code>dashboard_view</code></td><td>进入小程序首页</td><td>用户活跃度分析</td></tr>
+                        <tr><td><code>realtime_monitor_view</code></td><td>进入实时监测页</td><td>核心功能使用频率</td></tr>
+                        <tr><td><code>alert_click</code></td><td>点击预警通知</td><td>预警触达效果</td></tr>
+                        <tr><td><code>alert_handle</code></td><td>确认处理预警</td><td>预警处理效率</td></tr>
+                        <tr><td><code>optimize_click</code></td><td>点击一键优化</td><td>自动调控使用率</td></tr>
+                        <tr><td><code>report_view</code></td><td>查看报告</td><td>报告功能使用频率</td></tr>
+                        <tr><td><code>report_export</code></td><td>导出报告</td><td>报告价值评估</td></tr>
+                        <tr><td><code>device_status_view</code></td><td>查看设备状态</td><td>设备管理关注度</td></tr>
+                        <tr><td><code>model_accuracy_check</code></td><td>查看模型效果</td><td>技术可信度</td></tr>
+                    </table>
+                </section>
+
+                <section class="view-section">
+                    <h2>08 版本规划与里程碑</h2>
+
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <span class="version">MVP</span>
+                            <span class="time">第1-8周</span>
+                            <p><span class="tag tag-p0">P0</span> 硬件定型：智能节能烧嘴定型、传感器集成、工业网关部署</p>
+                            <p><span class="tag tag-p0">P0</span> 平台基础：数据监测、实时看板、基础预警</p>
+                            <p><strong>里程碑：</strong>完成单窑炉Demo部署，燃烧效率提升至78%</p>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="version">v1.1</span>
+                            <span class="time">第9-14周</span>
+                            <p><span class="tag tag-p0">P0</span> BiLG-BLS模型上线、预测准确率≥92%</p>
+                            <p><span class="tag tag-p1">P1</span> 微信小程序、异常预警、自动调控</p>
+                            <p><strong>里程碑：</strong>完成2家客户试点部署，验证节能效果</p>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="version">v1.2</span>
+                            <span class="time">第15-20周</span>
+                            <p><span class="tag tag-p1">P1</span> 工艺优化报告、预防性维护</p>
+                            <p><span class="tag tag-p0">P0</span> 管理后台：客户管理、设备管理、订单管理</p>
+                            <p><strong>里程碑：</strong>签约5家客户，实现SaaS化运营</p>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="version">v1.3</span>
+                            <span class="time">第21-26周</span>
+                            <p><span class="tag tag-p2">P2</span> 多窑炉管理、历史数据查询、数据导出</p>
+                            <p><span class="tag tag-p1">P1</span> 模型自动迭代、A/B测试</p>
+                            <p><strong>里程碑：</strong>签约10家客户，客户续约率≥80%</p>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="version">v1.4</span>
+                            <span class="time">第27-32周</span>
+                            <p><span class="tag tag-p1">P1</span> 硬件优化：分段式喷火铜管、风叶结构优化</p>
+                            <p><span class="tag tag-p2">P2</span> 专项报告、政府补贴申请材料生成</p>
+                            <p><strong>里程碑：</strong>签约15家客户，单客户ARPU≥¥50,000</p>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="version">v1.5</span>
+                            <span class="time">第33-40周</span>
+                            <p><span class="tag tag-p2">P2</span> 智能推荐（工艺优化建议）、行业对标、API开放</p>
+                            <p><span class="tag tag-p2">P2</span> 生态建设：合作伙伴接入、渠道分销</p>
+                            <p><strong>里程碑：</strong>签约20家客户，启动区域代理合作</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="view-section">
+                    <h2>09 项目成果与反思</h2>
+
+                    <div class="highlight-box">
+                        <p>🏆 <strong>核心成果</strong></p>
+                        <ul style="margin-top: 0.5em; font-weight: normal;">
+                            <li>输出完整<strong>PRD文档 v1.0</strong>（10大模块，覆盖背景/需求/用户/功能/流程/原型/数据/异常/版本/附录）</li>
+                            <li>设计<strong>BiLG-BLS预测模型架构</strong>：VMD+LSTM+BiGRU异构双流+级联BLS，预测准确率目标≥92%</li>
+                            <li>构建<strong>五层系统架构</strong>：硬件层→边缘计算层→云平台层→应用层→通知服务</li>
+                            <li>设计<strong>三级预警+自动调控闭环</strong>：紧急/重要/提示分级，PID自动+手动双模式</li>
+                            <li>建立<strong>8大核心指标</strong>的数据监控体系，含北极星指标与埋点事件</li>
+                        </ul>
+                    </div>
+
+                    <div class="content-block">
+                        <h4>💡 关键收获</h4>
+                        <ul>
+                            <li><strong>B端产品思维</strong>：工业产品决策链长、信任门槛高，需通过ROI计算、同行案例、政府补贴等多维度推动决策</li>
+                            <li><strong>硬件+软件协同设计</strong>：智能烧嘴是数据入口，AI模型是价值核心，二者缺一不可</li>
+                            <li><strong>边缘计算的重要性</strong>：工业场景网络不稳定，边缘端需保留轻量级推理能力和≥24小时本地缓存</li>
+                            <li><strong>异常处理的前瞻性</strong>：窑炉大修停产、燃料类型变更、传感器漂移等边界情况需提前设计应对策略</li>
+                        </ul>
+                    </div>
+
+                    <div class="content-block">
+                        <h4>🔧 技术亮点</h4>
+                        <ul>
+                            <li><strong>BiLG-BLS模型</strong>：相比传统LSTM（71%）和Transformer（85%），预测准确率提升至92%，计算资源消耗低</li>
+                            <li><strong>PID闭环调控</strong>：单次调节幅度限制（燃气±3%、空气±5%），防止剧烈波动，调控周期≤10秒</li>
+                            <li><strong>OTA固件升级</strong>：签名验证防恶意刷机，升级失败自动回滚至上一版本</li>
+                            <li><strong>RBAC权限控制</strong>：超级管理员/运营管理员/技术工程师/客服专员/财务专员五角色权限体系</li>
+                        </ul>
+                    </div>
+
+                    <div class="content-block">
+                        <h4>🎯 如果重新做，我会优化</h4>
+                        <ul>
+                            <li>补充一手用户调研：当前用户画像基于行业经验推断，需深入陶瓷厂进行实地访谈和观察</li>
+                            <li>增加技术可行性验证：BiLG-BLS模型在真实窑炉数据上的表现需通过POC验证</li>
+                            <li>细化成本估算：硬件BOM成本、云服务器费用、技术团队人力成本需更精确测算</li>
+                            <li>补充合规审查：工业燃烧设备需符合GB/T标准，数据采集需考虑安全生产规范</li>
+                            <li>增强竞品实地测试：对霍尼韦尔等竞品进行实际使用体验，获取更真实的一手对比数据</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section class="view-section">
+                    <h2>10 相关链接</h2>
+                    <div class="content-block">
+                        <p>📄 <strong>完整PRD文档：</strong><span style="color: var(--text-secondary);">碳智优——数字化烧嘴管家 PRD v1.0（Word文档）</span></p>
+                        <p>🎨 <strong>原型设计：</strong><span style="color: var(--text-secondary);">微信小程序 + PC端客户后台 + 管理后台（原型见上文截图占位区）</span></p>
+                    </div>
+                </section>
+
+                <div class="project-nav">
+                    <div class="back-link">
+                        <a href="../../index.html">← 返回作品集首页</a>
+                    </div>
+                    <div class="nav-links">
+                        <a href="../dev/cat-shop.html">查看研发视角 →</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="../../assets/js/jquery.min.js"></script>
+    <script src="../../assets/js/browser.min.js"></script>
+    <script src="../../assets/js/breakpoints.min.js"></script>
+    <script src="../../assets/js/util.js"></script>
+    <script src="../../assets/js/main.js"></script>
+</body>
+</html>

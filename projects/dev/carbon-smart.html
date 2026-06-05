@@ -1,0 +1,146 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>碳智优 — 数字化烧嘴管家 - 邱彦琦的作品集</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta name="description" content="邱彦琦的作品集 - 碳智优 — 数字化烧嘴管家" />
+		<link rel="stylesheet" href="../../assets/css/main.css" />
+		<link rel="stylesheet" href="../../assets/css/vintage.css" />
+		<link rel="stylesheet" href="../../assets/css/project-detail.css" />
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+	</head>
+	<body class="is-preload">
+
+		<div id="wrapper">
+
+			<div id="main">
+				<div class="inner">
+
+					<header id="header">
+						<a href="../../dev.html" class="logo"><strong>邱彦琦的作品集</strong></a>
+						
+						<ul class="icons">
+							<li><a href="https://github.com/1542-qyq/CarbonSmart-Applet-Final-Version" class="icon brands fa-github"><span class="label">Github</span></a></li>
+							<li><a href="https://www.kaggle.com/yanqiqiu" class="icon brands fa-kaggle"><span class="label">Kaggle</span></a></li>
+							<li><a href="mailto:Q13650089338@outlook.com" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+						</ul>
+					</header>
+
+					<div class="project-hero">
+						<h1>碳智优 — 数字化烧嘴管家</h1>
+						<p class="project-subtitle">微信小程序（分包加载）+ 后端服务 + BiLG-BLS 预测模型</p>
+						<div class="project-meta">
+							<span>📅 2024.05 - 2024.07</span>
+							<span>👤 第一开发人</span>
+							<span>👥 4人团队</span>
+						</div>
+					</div>
+
+					<section class="view-section">
+						<h2>研发视角</h2>
+
+						<h3>1. 项目概览</h3>
+						<div class="content-block">
+							<h4>一句话定位</h4>
+							<p>全栈项目，负责小程序前端架构、模型集成、三级定价后端逻辑，优化分包加载性能</p>
+						</div>
+						<p><strong>时间周期：</strong>2024.05 - 2024.07</p>
+						<p><strong>我的角色：</strong>第一开发人</p>
+						<p><strong>团队规模：</strong>4人团队</p>
+
+						<h3>2. 技术架构</h3>
+						<div class="content-block">
+							<h4>系统架构</h4>
+							<p>微信小程序 + Java后端 + MySQL数据库 + BiLG-BLS预测模型，采用分包加载架构优化性能</p>
+						</div>
+						<div class="content-block">
+							<h4>技术栈</h4>
+							<div class="tech-stack">
+								<span class="tech-tag">前端：微信原生小程序</span>
+								<span class="tech-tag">后端：Java</span>
+								<span class="tech-tag">数据库：MySQL</span>
+								<span class="tech-tag">图表：ECharts</span>
+								<span class="tech-tag">AI模型：BiLG-BLS</span>
+							</div>
+						</div>
+
+						<h3>3. 前端实现</h3>
+						<div class="content-block">
+							<h4>页面结构</h4>
+							<p>采用Tab架构：首页/商务/购物车/个人中心 + 分包加载数字化服务模块</p>
+						</div>
+						<div class="content-block">
+							<h4>组件设计</h4>
+							<p>封装通用的商品卡片、图表组件、设备管理组件，提高代码复用率</p>
+						</div>
+						<div class="highlight-box">
+							<p>⚡ 性能优化：分包加载策略，主包只包含首屏必需，将数字化服务等低频模块分离到分包</p>
+						</div>
+
+						<h3>4. 后端实现</h3>
+						<div class="content-block">
+							<h4>数据库设计</h4>
+							<p>核心表：用户表、设备表、订单表、能耗数据表，设计索引优化查询性能</p>
+						</div>
+						<div class="content-block">
+							<h4>API 设计</h4>
+							<p>RESTful接口规范，核心接口：设备数据上传、能耗统计、预测结果获取、订单管理</p>
+						</div>
+						<div class="content-block">
+							<h4>认证权限</h4>
+							<p>基于微信登录的会话管理，用户-企业-设备三级权限体系</p>
+						</div>
+
+						<h3>5. 算法/核心逻辑</h3>
+						<div class="content-block">
+							<h4>模型原理</h4>
+							<p>BiLG-BLS模型：双向长短期记忆网络 + 宽度学习系统，用于能耗预测和异常检测</p>
+						</div>
+						<div class="content-block">
+							<h4>关键代码思路</h4>
+							<p>模型实时预测，通过Websocket推送数据到前端，实现仪表盘实时更新</p>
+						</div>
+						<div class="highlight-box">
+							<p>📈 优化点：模型轻量化部署，通过模型剪枝和量化，提升预测速度30%</p>
+						</div>
+
+						<h3>6. 部署与质量</h3>
+						<div class="content-block">
+							<h4>部署方案</h4>
+							<p>后端部署在云服务器，小程序在微信平台发布，模型服务独立部署</p>
+						</div>
+						<div class="content-block">
+							<h4>Git 管理</h4>
+							<p>Git分支管理：develop/dev功能分支，合并后发布到主分支</p>
+						</div>
+						<div class="content-block">
+							<h4>测试</h4>
+							<p>单元测试覆盖核心业务逻辑，集成测试验证完整流程，用户测试收集反馈</p>
+						</div>
+					</section>
+
+					<div class="project-nav">
+						<div class="back-link">
+							<a href="../../dev.html">← 返回首页</a>
+						</div>
+						<div class="nav-links">
+							<a href="../cat-shop/dev.html">← 猫咪店铺</a>
+							<a href="../lstm-bls/dev.html">LSTM-BLS →</a>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+		</div>
+
+		<script src="../../assets/js/jquery.min.js"></script>
+		<script src="../../assets/js/browser.min.js"></script>
+		<script src="../../assets/js/breakpoints.min.js"></script>
+		<script src="../../assets/js/util.js"></script>
+		<script src="../../assets/js/main.js"></script>
+
+	</body>
+</html>

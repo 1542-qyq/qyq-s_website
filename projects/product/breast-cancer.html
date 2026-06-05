@@ -1,0 +1,677 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>乳腺癌智护 - 邱彦琦的产品作品集</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta name="description" content="邱彦琦的产品作品集 - 乳腺癌智护：基于随机森林与YOLOv8的风险预测与识别系统" />
+		<link rel="stylesheet" href="../../assets/css/main.css" />
+		<link rel="stylesheet" href="../../assets/css/vintage.css" />
+		<link rel="stylesheet" href="../../assets/css/project-detail.css" />
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+		<style>
+			/* 仅新增图片占位和表格样式，不覆盖原有样式 */
+			.img-placeholder {
+				background: var(--bg-main);
+				border: 2px dashed var(--border-light);
+				border-radius: var(--card-radius);
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				color: var(--text-secondary);
+				font-size: 0.9em;
+				min-height: 200px;
+				margin: 1em 0;
+				text-align: center;
+				padding: 2em;
+			}
+			.img-placeholder.large { min-height: 400px; }
+			.img-placeholder.small { min-height: 150px; }
+
+			.data-table {
+				width: 100%;
+				border-collapse: collapse;
+				margin: 1em 0;
+				font-size: 0.9em;
+			}
+			.data-table th {
+				background: var(--bg-section);
+				color: var(--text-main);
+				padding: 10px;
+				text-align: left;
+				border-bottom: 2px solid var(--border-light);
+			}
+			.data-table td {
+				padding: 8px 10px;
+				border-bottom: 1px solid var(--border-light);
+				color: var(--text-secondary);
+			}
+			.data-table tr:nth-child(even) {
+				background: var(--bg-main);
+			}
+
+			.metric-cards {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+				gap: 1em;
+				margin: 1em 0;
+			}
+			.metric-card {
+				background: var(--bg-main);
+				border: 1px solid var(--border-light);
+				border-radius: var(--card-radius);
+				padding: 1.5em;
+				text-align: center;
+			}
+			.metric-card .number {
+				font-size: 2em;
+				font-weight: bold;
+				color: var(--color-primary);
+			}
+			.metric-card .label {
+				color: var(--text-secondary);
+				font-size: 0.85em;
+				margin-top: 0.5em;
+			}
+
+			.timeline {
+				position: relative;
+				padding-left: 2em;
+				margin: 1em 0;
+			}
+			.timeline::before {
+				content: '';
+				position: absolute;
+				left: 6px;
+				top: 0;
+				bottom: 0;
+				width: 2px;
+				background: var(--border-light);
+			}
+			.timeline-item {
+				position: relative;
+				margin-bottom: 1.5em;
+				padding-left: 1em;
+			}
+			.timeline-item::before {
+				content: '';
+				position: absolute;
+				left: -1.5em;
+				top: 0.4em;
+				width: 10px;
+				height: 10px;
+				background: var(--color-primary);
+				border-radius: 50%;
+			}
+			.timeline-item .version {
+				font-weight: bold;
+				color: var(--color-primary);
+			}
+			.timeline-item .time {
+				color: var(--text-secondary);
+				font-size: 0.85em;
+				margin-left: 0.5em;
+			}
+
+			.tag {
+				display: inline-block;
+				padding: 2px 8px;
+				border-radius: 12px;
+				font-size: 0.75em;
+				font-weight: 500;
+				margin-right: 0.3em;
+			}
+			.tag-p0 { background: #dc3545; color: white; }
+			.tag-p1 { background: #fd7e14; color: white; }
+			.tag-p2 { background: var(--text-secondary); color: white; }
+
+			.competitor-table {
+				width: 100%;
+				border-collapse: collapse;
+				margin: 1em 0;
+				font-size: 0.9em;
+			}
+			.competitor-table th {
+				background: var(--bg-section);
+				color: var(--text-main);
+				padding: 10px;
+				text-align: left;
+				border-bottom: 2px solid var(--border-light);
+			}
+			.competitor-table td {
+				padding: 8px 10px;
+				border-bottom: 1px solid var(--border-light);
+				color: var(--text-secondary);
+			}
+			.competitor-table tr:nth-child(even) {
+				background: var(--bg-main);
+			}
+
+			.wireframe-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+				gap: 1.5em;
+				margin: 1em 0;
+			}
+			.wireframe-item {
+				background: var(--bg-main);
+				border: 1px solid var(--border-light);
+				border-radius: var(--card-radius);
+				padding: 1em;
+			}
+			.wireframe-item .img-placeholder {
+				margin: 0;
+			}
+			.wireframe-item figcaption {
+				text-align: center;
+				margin-top: 0.75em;
+				font-size: 0.9em;
+				color: var(--text-secondary);
+			}
+		</style>
+	</head>
+	<body class="is-preload">
+
+		<div id="wrapper">
+			<div id="main">
+				<div class="inner">
+
+					<header id="header">
+						<a href="../../index.html" class="logo"><strong>邱彦琦的产品作品集</strong></a>
+						<ul class="icons">
+							<li><a href="https://github.com/1542-qyq" class="icon brands fa-github"><span class="label">Github</span></a></li>
+							<li><a href="https://www.kaggle.com/yanqiqiu" class="icon brands fa-kaggle"><span class="label">Kaggle</span></a></li>
+							<li><a href="mailto:Q13650089338@outlook.com" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+						</ul>
+					</header>
+
+					<div class="project-hero">
+						<h1>乳腺癌智护</h1>
+						<p class="project-subtitle">AI医疗辅助诊断 · 随机森林风险预测 · YOLOv8细胞识别 · 微信小程序</p>
+						<div class="project-meta">
+							<span>📅 2025.04 - 2025.12</span>
+							<span>👤 核心成员 / 网站开发</span>
+							<span>👥 4人团队</span>
+							<span>🏷️ 大学生创新创业训练计划</span>
+						</div>
+					</div>
+
+					<section class="view-section">
+						<h2>01 项目概览</h2>
+
+						<div class="content-block">
+							<h4>🎯 一句话定位</h4>
+							<p>为女性打造的<strong>乳腺癌智能防护平台</strong>，整合风险预测评估与病理细胞AI识别，配套微信小程序端，实现"风险评估→早期预警→辅助诊断"的全链路健康管理闭环。</p>
+						</div>
+
+						<div class="content-block">
+							<h4>💡 核心洞察</h4>
+							<p>乳腺癌发病率与死亡率持续攀升，<strong>早期筛查率低</strong>（中国仅20%女性定期筛查）、<strong>病理诊断依赖专家经验</strong>（基层医院误诊率高）。本项目通过<strong>随机森林多因素风险预测</strong>实现高危人群预警，通过<strong>YOLOv8病理细胞自动识别</strong>辅助医生精准定位癌细胞，降低漏诊误诊率。</p>
+						</div>
+
+						<!-- 【占位】项目架构图 -->
+						<div class="img-placeholder large">
+							📊 项目架构图：微信小程序端 + 风险预测引擎 + 细胞识别引擎 + 管理后台<br>
+							<small>建议尺寸：1200×500px | 展示四大模块关系</small>
+						</div>
+					</section>
+
+					<section class="view-section">
+						<h2>02 市场分析与竞品洞察</h2>
+
+						<div class="content-block">
+							<h4>📈 市场背景</h4>
+							<ul>
+								<li>中国乳腺癌年新发病例约<strong>42万</strong>，年死亡人数约<strong>12万</strong>，居女性恶性肿瘤首位</li>
+								<li>乳腺癌<strong>5年生存率早期可达90%</strong>，晚期仅约20%，早筛早治是关键</li>
+								<li>中国女性乳腺癌筛查率不足<strong>20%</strong>，远低于欧美国家的60-70%</li>
+								<li>病理科医生缺口超<strong>10万人</strong>，基层医院诊断能力严重不足</li>
+							</ul>
+						</div>
+
+						<!-- 【占位】市场规模趋势图 -->
+						<div class="img-placeholder">
+							📈 乳腺癌发病与死亡趋势图：2019-2024年数据曲线<br>
+							<small>建议尺寸：800×300px</small>
+						</div>
+
+						<h3>竞品分析</h3>
+						<table class="competitor-table">
+							<tr>
+								<th>竞品</th>
+								<th>优势</th>
+								<th>劣势</th>
+								<th>我们的差异化</th>
+							</tr>
+							<tr>
+								<td><strong>腾讯觅影/阿里健康</strong></td>
+								<td>大厂背书、技术实力强</td>
+								<td>主要面向医院B端，C端用户无法直接使用</td>
+								<td>✅ 面向C端用户，微信小程序直达</td>
+							</tr>
+							<tr>
+								<td><strong>美年大健康/爱康国宾</strong></td>
+								<td>线下体检网络完善</td>
+								<td>费用高（¥300-800/次）、预约繁琐、无持续监测</td>
+								<td>✅ 免费风险评估、持续追踪、AI辅助</td>
+							</tr>
+							<tr>
+								<td><strong>各类健康自测小程序</strong></td>
+								<td>使用便捷、门槛低</td>
+								<td>缺乏医学依据、预测模型粗糙、无图像识别能力</td>
+								<td>✅ 基于真实数据训练、双引擎验证</td>
+							</tr>
+							<tr>
+								<td><strong>医院病理科人工诊断</strong></td>
+								<td>专家经验丰富、权威性强</td>
+								<td>医生资源紧张、诊断周期长、主观误差</td>
+								<td>✅ AI秒级识别、标准化输出、辅助复核</td>
+							</tr>
+						</table>
+
+						<!-- 【占位】竞品对比雷达图 -->
+						<div class="img-placeholder">
+							🎯 竞品能力雷达图：可及性/准确性/成本/便捷性/持续监测 五维度对比<br>
+							<small>建议尺寸：600×400px</small>
+						</div>
+					</section>
+
+					<section class="view-section">
+						<h2>03 用户分析</h2>
+
+						<div class="content-block">
+							<h4>👤 核心用户画像（60%）</h4>
+							<p><strong>20-50岁关注健康的女性</strong> | 一二线城市为主 | 中等以上收入 | 有定期体检意识</p>
+							<p>🔸 <strong>痛点</strong>：不了解自身患癌风险、体检报告看不懂、担心去医院麻烦</p>
+							<p>🔸 <strong>消费行为</strong>：愿意为健康管理付费、注重隐私保护、偏好移动端自助服务</p>
+						</div>
+
+						<!-- 【占位】用户画像图 -->
+						<div class="img-placeholder">
+							👤 用户画像卡片：核心用户/次要用户/边缘用户<br>
+							<small>建议尺寸：900×300px | 三列卡片式布局</small>
+						</div>
+
+						<h3>核心使用场景</h3>
+
+						<div class="content-block">
+							<h4>场景一：日常风险自测（轻决策、高频）</h4>
+							<ol>
+								<li>打开微信小程序，进入"风险自测"模块</li>
+								<li>填写个人基本信息（年龄、BMI、初潮年龄等）</li>
+								<li>填写生活习惯信息（饮酒、运动、哺乳史等）</li>
+								<li>系统调用随机森林模型进行风险评估</li>
+								<li>生成<strong>个性化风险报告</strong>（低/中/高风险等级）</li>
+								<li>查看风险因素权重分析，了解主要诱因</li>
+								<li>获取<strong>定制化预防建议</strong>（饮食、运动、筛查频率）</li>
+								<li>可选择<strong>付费获取专业医生解读</strong></li>
+								<li>设置定期提醒，<strong>持续追踪风险变化</strong></li>
+							</ol>
+						</div>
+
+						<div class="content-block">
+							<h4>场景二：病理图像AI识别（专业辅助、B端）</h4>
+							<ol>
+								<li>医生/技师上传病理切片扫描图像</li>
+								<li>系统自动进行图像预处理（裁剪、归一化、增强）</li>
+								<li>YOLOv8模型对图像进行<strong>癌细胞自动检测与定位</strong></li>
+								<li>输出<strong>标记结果图</strong>（边界框+置信度）</li>
+								<li>生成<strong>结构化诊断报告</strong>（细胞数量、恶性概率、区域分布）</li>
+								<li>医生复核AI结果，确认或修正诊断</li>
+								<li>支持<strong>历史病例对比</strong>与趋势分析</li>
+							</ol>
+						</div>
+
+						<!-- 【占位】用户旅程地图 -->
+						<div class="img-placeholder large">
+							🗺️ 用户旅程地图：风险自测全流程（情绪曲线+触点+痛点+机会点）<br>
+							<small>建议尺寸：1200×400px | 横轴：步骤 / 纵轴：情绪值</small>
+						</div>
+					</section>
+
+					<section class="view-section">
+						<h2>04 产品设计</h2>
+
+						<h3>系统架构</h3>
+						<pre><code>乳腺癌智护平台
+├── <strong>微信小程序端</strong>（用户端C端）
+│   ├── 首页（功能入口、健康资讯、风险评估引导）
+│   ├── 风险自测（问卷填写、模型计算、报告生成）
+│   ├── 报告中心（历史报告、趋势对比、风险追踪）
+│   ├── 健康建议（个性化预防方案、科普内容）
+│   ├── 专家解读（付费咨询、报告解读预约）
+│   └── 个人中心（档案管理、提醒设置、订单记录）
+│
+├── <strong>风险预测引擎</strong>（随机森林模型）
+│   ├── 数据采集（年龄、BMI、生活习惯、家族史等）
+│   ├── 特征工程（数据清洗、编码、标准化）
+│   ├── 模型训练（Bootstrapping抽样、多决策树集成）
+│   ├── 权重分析（特征重要性排序、风险因素可视化）
+│   ├── 风险分级（低/中/高风险阈值判定）
+│   └── 报告生成（结构化输出、个性化建议）
+│
+├── <strong>细胞识别引擎</strong>（YOLOv8 + CNN）
+│   ├── 图像上传（病理切片扫描图、DICOM兼容）
+│   ├── 预处理（裁剪、归一化、数据增强）
+│   ├── 模型推理（癌细胞检测、边界框回归）
+│   ├── 结果标注（自动标记、置信度输出）
+│   ├── 报告生成（细胞计数、恶性概率、区域热力图）
+│   └── 医生复核（人工确认、修正反馈、模型迭代）
+│
+└── <strong>管理后台</strong>（平台端）
+    ├── 用户管理（档案查看、风险评估记录、行为分析）
+    ├── 模型管理（训练任务、版本控制、性能监控）
+    ├── 数据管理（数据集维护、标注审核、质量监控）
+    ├── 订单管理（解读服务订单、退款处理）
+    ├── 内容管理（健康资讯、科普文章发布）
+    └── 权限控制（RBAC角色管理：管理员/医生/运营）</code></pre>
+
+						<!-- 【占位】系统架构图 -->
+						<div class="img-placeholder large">
+							🏗️ 系统架构图：四大模块关系+数据流向<br>
+							<small>建议尺寸：1000×600px | 建议用ProcessOn/Draw.io绘制</small>
+						</div>
+
+						<h3>核心功能设计亮点</h3>
+
+						<div class="content-block">
+							<h4>亮点一：随机森林多因素风险预测（预防端）</h4>
+							<ul>
+								<li>采集<strong>12+项后天性发病因素</strong>：年龄、BMI、初潮年龄、首次生育年龄、哺乳时长、饮酒频率、运动习惯、压力水平、既往病史、家族史等</li>
+								<li>采用<strong>有放回抽样（Bootstrapping）</strong>构建多棵决策树，训练集与测试集比例8:2</li>
+								<li>每棵决策树随机选取特征子集进行节点划分，增加模型多样性，防止过拟合</li>
+								<li>输出<strong>特征重要性排序</strong>，直观展示各因素对患癌风险的影响权重</li>
+								<li>支持<strong>风险趋势追踪</strong>：多次评估结果对比，监测风险变化</li>
+							</ul>
+						</div>
+
+						<div class="content-block">
+							<h4>亮点二：YOLOv8病理细胞自动识别（诊断端）</h4>
+							<ul>
+								<li>基于<strong>AI Studio平台200例乳腺癌患者病理切片</strong>训练数据集</li>
+								<li>采用<strong>迁移学习</strong>：以预训练YOLOv8为基座，微调适配病理图像</li>
+								<li>数据增强：旋转、缩放、翻转、亮度调整，提升模型泛化能力</li>
+								<li>输出<strong>边界框标记+置信度</strong>，精准定位癌细胞区域</li>
+								<li>支持<strong>批量处理</strong>：多张切片并行识别，提升诊断效率</li>
+							</ul>
+						</div>
+
+						<div class="content-block">
+							<h4>亮点三：双引擎协同验证（信任建立）</h4>
+							<table class="data-table">
+								<tr>
+									<th>验证维度</th>
+									<th>风险预测引擎</th>
+									<th>细胞识别引擎</th>
+									<th>协同价值</th>
+								</tr>
+								<tr>
+									<td>应用场景</td>
+									<td>健康人群风险预警</td>
+									<td>疑似患者辅助诊断</td>
+									<td rowspan="4">覆盖"预防→筛查→诊断"全链路</td>
+								</tr>
+								<tr>
+									<td>输入数据</td>
+									<td>结构化问卷数据</td>
+									<td>病理切片图像</td>
+								</tr>
+								<tr>
+									<td>输出结果</td>
+									<td>风险等级+因素权重</td>
+									<td>癌细胞标记+恶性概率</td>
+								</tr>
+								<tr>
+									<td>核心价值</td>
+									<td>降低发病率（预防）</td>
+									<td>降低误诊率（诊断）</td>
+								</tr>
+							</table>
+						</div>
+					</section>
+
+					<section class="view-section">
+						<h2>05 核心流程设计</h2>
+
+						<h3>风险预测模型训练流程</h3>
+						<!-- 【占位】模型训练流程图 -->
+						<div class="img-placeholder large">
+							🔄 随机森林模型训练流程图<br>
+							<small>建议尺寸：1000×500px | 包含：数据采集→清洗→Bootstrapping抽样→特征子集选择→决策树构建→集成投票→模型评估→权重输出</small>
+						</div>
+
+						<h3>病理细胞识别流程</h3>
+						<!-- 【占位】细胞识别流程图 -->
+						<div class="img-placeholder large">
+							🔬 病理细胞AI识别流程图<br>
+							<small>建议尺寸：900×500px | 包含：图像上传→预处理→YOLOv8推理→边界框回归→NMS去重→结果标注→报告生成→医生复核</small>
+						</div>
+
+						<h3>用户风险评估流程</h3>
+						<!-- 【占位】风险评估流程图 -->
+						<div class="img-placeholder">
+							📋 用户风险评估流程图<br>
+							<small>建议尺寸：800×400px | 包含：进入小程序→填写问卷→数据校验→模型计算→生成报告→查看建议→可选付费解读</small>
+						</div>
+					</section>
+
+					<section class="view-section">
+						<h2>06 原型设计</h2>
+
+						<h3>微信小程序端原型</h3>
+						<div class="wireframe-grid">
+							<div class="wireframe-item">
+								<div class="img-placeholder small">首页原型<br><small>建议：375×667px</small></div>
+								<figcaption>首页：功能入口 + 健康资讯 + 风险评估引导</figcaption>
+							</div>
+							<div class="wireframe-item">
+								<div class="img-placeholder small">风险自测页原型<br><small>建议：375×800px</small></div>
+								<figcaption>风险自测：问卷填写 + 进度提示 + 实时校验</figcaption>
+							</div>
+							<div class="wireframe-item">
+								<div class="img-placeholder small">风险报告页原型<br><small>建议：375×700px</small></div>
+								<figcaption>风险报告：等级展示 + 因素权重 + 预防建议</figcaption>
+							</div>
+						</div>
+
+						<h3>后台管理系统原型（我负责开发）</h3>
+						<div class="wireframe-grid">
+							<div class="wireframe-item">
+								<div class="img-placeholder small">后台登录页<br><small>建议：1440×900px</small></div>
+								<figcaption>后台登录：Session验证 + 白名单机制</figcaption>
+							</div>
+							<div class="wireframe-item">
+								<div class="img-placeholder small">用户管理页<br><small>建议：1440×900px</small></div>
+								<figcaption>用户管理：档案查看 + 评估记录 + 行为分析</figcaption>
+							</div>
+							<div class="wireframe-item">
+								<div class="img-placeholder small">模型管理页<br><small>建议：1440×900px</small></div>
+								<figcaption>模型管理：训练任务 + 版本控制 + 性能监控</figcaption>
+							</div>
+							<div class="wireframe-item">
+								<div class="img-placeholder small">数据管理页<br><small>建议：1440×900px</small></div>
+								<figcaption>数据管理：数据集维护 + 标注审核 + 质量监控</figcaption>
+							</div>
+							<div class="wireframe-item">
+								<div class="img-placeholder small">订单管理页<br><small>建议：1440×900px</small></div>
+								<figcaption>订单管理：解读服务订单 + 退款处理 + 状态筛选</figcaption>
+							</div>
+							<div class="wireframe-item">
+								<div class="img-placeholder small">后台首页<br><small>建议：1440×900px</small></div>
+								<figcaption>数据概览：评估次数 + 识别准确率 + 待处理提醒</figcaption>
+							</div>
+						</div>
+					</section>
+
+					<section class="view-section">
+						<h2>07 数据指标体系</h2>
+
+						<div class="highlight-box">
+							<p>🌟 <strong>北极星指标：高危人群筛查覆盖率 ≥ 30%</strong></p>
+							<p style="margin-top: 0.5em; font-weight: normal">完成风险评估并被标记为高风险的用户中，实际进行进一步检查的比例 —— 衡量产品对早筛早治的实际推动作用</p>
+						</div>
+
+						<h3>核心指标看板</h3>
+						<div class="metric-cards">
+							<div class="metric-card">
+								<div class="number">≥85%</div>
+								<div class="label">风险预测准确率</div>
+							</div>
+							<div class="metric-card">
+								<div class="number">≥90%</div>
+								<div class="label">细胞识别mAP</div>
+							</div>
+							<div class="metric-card">
+								<div class="number">≥40%</div>
+								<div class="label">7日留存率</div>
+							</div>
+							<div class="metric-card">
+								<div class="number">≥25%</div>
+								<div class="label">付费解读转化率</div>
+							</div>
+							<div class="metric-card">
+								<div class="number">≤5%</div>
+								<div class="label">模型误报率</div>
+							</div>
+							<div class="metric-card">
+								<div class="number">≥60</div>
+								<div class="label">用户NPS满意度</div>
+							</div>
+						</div>
+
+						<!-- 【占位】数据监控看板 -->
+						<div class="img-placeholder">
+							📊 数据监控看板原型：核心指标趋势 + 模型性能 + 用户行为<br>
+							<small>建议尺寸：1200×600px</small>
+						</div>
+
+						<h3>关键埋点事件</h3>
+						<table class="data-table">
+							<tr>
+								<th>事件名</th>
+								<th>触发时机</th>
+								<th>用途</th>
+							</tr>
+							<tr><td><code>risk_assess_start</code></td><td>点击开始风险评估</td><td>评估意愿分析</td></tr>
+							<tr><td><code>risk_assess_complete</code></td><td>完成问卷提交</td><td>完成率计算</td></tr>
+							<tr><td><code>report_view</code></td><td>查看风险报告</td><td>报告关注度</td></tr>
+							<tr><td><code>expert_consult_click</code></td><td>点击专家解读</td><td>付费意愿分析</td></tr>
+							<tr><td><code>image_upload</code></td><td>上传病理图像</td><td>识别功能使用率</td></tr>
+							<tr><td><code>ai_detect_complete</code></td><td>AI识别完成</td><td>识别成功率</td></tr>
+							<tr><td><code>doctor_review</code></td><td>医生复核确认</td><td>人机协同效率</td></tr>
+						</table>
+					</section>
+
+					<section class="view-section">
+						<h2>08 版本规划与里程碑</h2>
+
+						<div class="timeline">
+							<div class="timeline-item">
+								<span class="version">MVP</span>
+								<span class="time">第1-4周</span>
+								<p><span class="tag tag-p0">P0</span> 随机森林风险预测：数据收集、特征工程、模型训练、微信小程序基础框架</p>
+								<p><strong>里程碑：</strong>完成风险评估核心功能，支持基础问卷填写与报告生成</p>
+							</div>
+							<div class="timeline-item">
+								<span class="version">v1.1</span>
+								<span class="time">第5-6周</span>
+								<p><span class="tag tag-p1">P1</span> 管理后台：用户管理、评估记录查看、数据报表导出、RBAC权限控制</p>
+								<p><strong>里程碑：</strong>运营人员可查看用户数据、导出统计报表</p>
+							</div>
+							<div class="timeline-item">
+								<span class="version">v1.2</span>
+								<span class="time">第7-8周</span>
+								<p><span class="tag tag-p0">P0</span> YOLOv8细胞识别：病理图像上传、预处理、模型推理、结果标注展示</p>
+								<p><strong>里程碑：</strong>上线AI识别功能，支持单张图像癌细胞检测</p>
+							</div>
+							<div class="timeline-item">
+								<span class="version">v1.3</span>
+								<span class="time">第9-10周</span>
+								<p><span class="tag tag-p1">P1</span> 诊断闭环：批量识别、结构化报告生成、医生复核流程、历史病例对比</p>
+								<p><strong>里程碑：</strong>完成B端辅助诊断闭环，支持医生工作流</p>
+							</div>
+							<div class="timeline-item">
+								<span class="version">v1.4</span>
+								<span class="time">第11-12周</span>
+								<p><span class="tag tag-p2">P2</span> 商业闭环：专家解读付费服务、健康资讯内容、用户提醒系统、数据可视化</p>
+								<p><strong>里程碑：</strong>上线付费解读与内容运营模块</p>
+							</div>
+							<div class="timeline-item">
+								<span class="version">v1.5</span>
+								<span class="time">第13-14周</span>
+								<p><span class="tag tag-p2">P2</span> 智能增长：风险趋势追踪、个性化健康方案推荐、社交分享裂变</p>
+								<p><strong>里程碑：</strong>提升用户粘性与传播率</p>
+							</div>
+						</div>
+					</section>
+
+					<section class="view-section">
+						<h2>09 项目成果与反思</h2>
+
+						<div class="highlight-box">
+							<p>🏆 <strong>核心成果</strong></p>
+							<ul style="margin-top: 0.5em; font-weight: normal;">
+								<li>完成<strong>随机森林风险预测模型</strong>训练，准确率≥85%，输出12项风险因素权重分析</li>
+								<li>完成<strong>YOLOv8癌细胞识别模型</strong>训练，基于200例病理切片，mAP≥90%</li>
+								<li>输出完整<strong>项目申报书</strong>（10000+字，覆盖背景/技术/市场/商业模式/团队/风险）</li>
+								<li>建立<strong>6大核心指标</strong>的数据监控体系</li>
+							</ul>
+						</div>
+
+						<div class="content-block">
+							<h4>💡 关键收获</h4>
+							<ul>
+								<li><strong>医疗AI产品设计思维</strong>：将"乳腺癌防治"拆解为风险预防→早期筛查→辅助诊断三层逻辑，覆盖用户全生命周期</li>
+								<li><strong>模型工程化意识</strong>：从实验室模型到产品化落地，需考虑数据质量、推理速度、结果可解释性、医生接受度</li>
+								<li><strong>合规与伦理意识</strong>：医疗AI涉及健康数据隐私、诊断责任边界，需提前设计数据安全与免责声明机制</li>
+							</ul>
+						</div>
+
+						<div class="content-block">
+							<h4>🔧 技术实践</h4>
+							<ul>
+								<li>随机森林集成学习：Bootstrapping抽样 + 特征子集随机选择 + 多决策树投票集成</li>
+								<li>YOLOv8目标检测：CSPDarknet骨干网络 + PANet特征融合 + 解耦头设计</li>
+								<li>数据增强策略：旋转、缩放、翻转、Mosaic增强，提升模型泛化能力</li>
+							</ul>
+						</div>
+
+						<div class="content-block">
+							<h4>🎯 如果重新做，我会优化</h4>
+							<ul>
+								<li>补充临床验证数据：当前模型基于公开数据集，需与医院合作获取真实临床数据验证</li>
+								<li>增加模型可解释性：随机森林虽输出特征重要性，但需更直观的可视化解释（如SHAP值）</li>
+								<li>补充医疗合规设计：需明确产品定位为"辅助工具"而非"诊断工具"，设计完善的免责声明</li>
+							</ul>
+						</div>
+					</section>
+
+					<section class="view-section">
+						<h2>10 相关链接</h2>
+						<div class="content-block">
+							<p>📎 <strong>GitHub仓库：</strong><a href="https://github.com/1542-qyq/Breast_Cancer_Applet" target="_blank">github.com/1542-qyq/Breast_Cancer_Applet</a></p>
+							<p>📄 <strong>完整申报书：</strong><span style="color: var(--text-secondary);">乳腺癌智护项目申报书（Word文档）</span></p>
+							<p>🎨 <strong>项目演示：</strong><span style="color: var(--text-secondary);">（创新创业项目，原型见上文截图占位区）</span></p>
+						</div>
+					</section>
+
+					<div class="project-nav">
+						<div class="back-link">
+							<a href="../../index.html">← 返回作品集首页</a>
+						</div>
+						<div class="nav-links">
+							<a href="../dev/breast-cancer-ai.html">查看研发视角 →</a>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+		<script src="../../assets/js/jquery.min.js"></script>
+		<script src="../../assets/js/browser.min.js"></script>
+		<script src="../../assets/js/breakpoints.min.js"></script>
+		<script src="../../assets/js/util.js"></script>
+		<script src="../../assets/js/main.js"></script>
+	</body>
+</html>

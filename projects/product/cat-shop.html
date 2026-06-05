@@ -1,0 +1,736 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>喵星人商城 - 邱彦琦的产品作品集</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta name="description" content="邱彦琦的产品作品集 - 喵星人用品商城PRD与后台管理系统" />
+		<link rel="stylesheet" href="../../assets/css/main.css" />
+		<link rel="stylesheet" href="../../assets/css/vintage.css" />
+		<link rel="stylesheet" href="../../assets/css/project-detail.css" />
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+		<style>
+			/* 仅新增图片占位和表格样式，不覆盖原有样式 */
+			.img-placeholder {
+				background: var(--bg-main);
+				border: 2px dashed var(--border-light);
+				border-radius: var(--card-radius);
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				color: var(--text-secondary);
+				font-size: 0.9em;
+				min-height: 200px;
+				margin: 1em 0;
+				text-align: center;
+				padding: 2em;
+			}
+			.img-placeholder.large { min-height: 400px; }
+			.img-placeholder.small { min-height: 150px; }
+
+			.data-table {
+				width: 100%;
+				border-collapse: collapse;
+				margin: 1em 0;
+				font-size: 0.9em;
+			}
+			.data-table th {
+				background: var(--bg-section);
+				color: var(--text-main);
+				padding: 10px;
+				text-align: left;
+				border-bottom: 2px solid var(--border-light);
+			}
+			.data-table td {
+				padding: 8px 10px;
+				border-bottom: 1px solid var(--border-light);
+				color: var(--text-secondary);
+			}
+			.data-table tr:nth-child(even) {
+				background: var(--bg-main);
+			}
+
+			.metric-cards {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+				gap: 1em;
+				margin: 1em 0;
+			}
+			.metric-card {
+				background: var(--bg-main);
+				border: 1px solid var(--border-light);
+				border-radius: var(--card-radius);
+				padding: 1.5em;
+				text-align: center;
+			}
+			.metric-card .number {
+				font-size: 2em;
+				font-weight: bold;
+				color: var(--color-primary);
+			}
+			.metric-card .label {
+				color: var(--text-secondary);
+				font-size: 0.85em;
+				margin-top: 0.5em;
+			}
+
+			.timeline {
+				position: relative;
+				padding-left: 2em;
+				margin: 1em 0;
+			}
+			.timeline::before {
+				content: '';
+				position: absolute;
+				left: 6px;
+				top: 0;
+				bottom: 0;
+				width: 2px;
+				background: var(--border-light);
+			}
+			.timeline-item {
+				position: relative;
+				margin-bottom: 1.5em;
+				padding-left: 1em;
+			}
+			.timeline-item::before {
+				content: '';
+				position: absolute;
+				left: -1.5em;
+				top: 0.4em;
+				width: 10px;
+				height: 10px;
+				background: var(--color-primary);
+				border-radius: 50%;
+			}
+			.timeline-item .version {
+				font-weight: bold;
+				color: var(--color-primary);
+			}
+			.timeline-item .time {
+				color: var(--text-secondary);
+				font-size: 0.85em;
+				margin-left: 0.5em;
+			}
+
+			.tag {
+				display: inline-block;
+				padding: 2px 8px;
+				border-radius: 12px;
+				font-size: 0.75em;
+				font-weight: 500;
+				margin-right: 0.3em;
+			}
+			.tag-p0 { background: #dc3545; color: white; }
+			.tag-p1 { background: #fd7e14; color: white; }
+			.tag-p2 { background: var(--text-secondary); color: white; }
+
+			.competitor-table {
+				width: 100%;
+				border-collapse: collapse;
+				margin: 1em 0;
+				font-size: 0.9em;
+			}
+			.competitor-table th {
+				background: var(--bg-section);
+				color: var(--text-main);
+				padding: 10px;
+				text-align: left;
+				border-bottom: 2px solid var(--border-light);
+			}
+			.competitor-table td {
+				padding: 8px 10px;
+				border-bottom: 1px solid var(--border-light);
+				color: var(--text-secondary);
+			}
+			.competitor-table tr:nth-child(even) {
+				background: var(--bg-main);
+			}
+
+			.wireframe-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+				gap: 1.5em;
+				margin: 1em 0;
+			}
+			.wireframe-item {
+				background: var(--bg-main);
+				border: 1px solid var(--border-light);
+				border-radius: var(--card-radius);
+				padding: 1em;
+			}
+			.wireframe-item .img-placeholder {
+				margin: 0;
+			}
+			.wireframe-item figcaption {
+				text-align: center;
+				margin-top: 0.75em;
+				font-size: 0.9em;
+				color: var(--text-secondary);
+			}
+		</style>
+	</head>
+	<body class="is-preload">
+
+		<div id="wrapper">
+			<div id="main">
+				<div class="inner">
+
+					<header id="header">
+						<a href="../../index.html" class="logo"><strong>邱彦琦的产品作品集</strong></a>
+						<ul class="icons">
+							<li><a href="https://github.com/1542-qyq" class="icon brands fa-github"><span class="label">Github</span></a></li>
+							<li><a href="https://www.kaggle.com/yanqiqiu" class="icon brands fa-kaggle"><span class="label">Kaggle</span></a></li>
+							<li><a href="mailto:Q13650089338@outlook.com" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+						</ul>
+					</header>
+
+					<div class="project-hero">
+						<h1>喵星人用品商城</h1>
+						<p class="project-subtitle">垂直宠物电商 · O2O活体交易 · 全链路后台管理系统</p>
+						<div class="project-meta">
+							<span>📅 2025.05 - 2025.07</span>
+							<span>👤 产品负责人 / 全栈开发</span>
+							<span>👥 独立负责</span>
+							<span>🏷️ 课程项目</span>
+						</div>
+					</div>
+
+					<section class="view-section">
+						<h2>01 项目概览</h2>
+
+						<div class="content-block">
+							<h4>🎯 一句话定位</h4>
+							<p>为宠物电商打造的<strong>垂直品类交易平台</strong>，整合用品商城与活体O2O交易，配套完整后台管理系统，实现"买猫→用品复购"的终身价值闭环。</p>
+						</div>
+
+						<div class="content-block">
+							<h4>💡 核心洞察</h4>
+							<p>中国宠物市场超3000亿，但<strong>活体交易信任缺失</strong>（闲鱼纠纷频发）、<strong>垂直平台体验落后</strong>（波奇网界面老旧）。本项目通过<strong>O2O履约+资质审核+电子合同</strong>解决信任痛点，通过<strong>用品+活体协同</strong>提升LTV。</p>
+						</div>
+
+						<figure class="image-container">
+							<img src="../../images/cat_shop/系统架构思维导图.png" alt="项目架构图" style="width: 100%;">
+							<figcaption>项目架构图：前台商城 + 活体交易 + 门店后台 + 管理后台</figcaption>
+						</figure>
+					</section>
+
+					<section class="view-section">
+						<h2>02 市场分析与竞品洞察</h2>
+
+						<div class="content-block">
+							<h4>📈 市场背景</h4>
+							<ul>
+								<li>中国宠物市场规模2024年突破<strong>3000亿元</strong>，年复合增长率15-20%</li>
+								<li>单身/独居人口超<strong>1.25亿</strong>，宠物成为核心情感陪伴载体</li>
+								<li>活体销售客单价（¥2000-20000）远高于用品（¥200-500）</li>
+							</ul>
+						</div>
+
+						
+
+						<h3>竞品分析</h3>
+						<table class="competitor-table">
+							<tr>
+								<th>竞品</th>
+								<th>优势</th>
+								<th>劣势</th>
+								<th>我们的差异化</th>
+							</tr>
+							<tr>
+								<td><strong>淘宝/京东宠物频道</strong></td>
+								<td>流量大、品类全</td>
+								<td>缺乏专业筛选、活体风险高</td>
+								<td>✅ 垂直专业、O2O履约保障</td>
+							</tr>
+							<tr>
+								<td><strong>波奇网</strong></td>
+								<td>垂直宠物电商</td>
+								<td>界面老旧、无活体交易</td>
+								<td>✅ 简洁现代、活体+用品闭环</td>
+							</tr>
+							<tr>
+								<td><strong>小红书宠物店</strong></td>
+								<td>内容种草强</td>
+								<td>交易闭环弱、售后缺失</td>
+								<td>✅ 完整交易链路、合同保障</td>
+							</tr>
+							<tr>
+								<td><strong>闲鱼个人卖家</strong></td>
+								<td>价格低</td>
+								<td>无资质审核、纠纷频发</td>
+								<td>✅ 平台担保、资质审核、质保服务</td>
+							</tr>
+						</table>
+
+						
+					</section>
+
+					<section class="view-section">
+						<h2>03 用户分析</h2>
+
+						<div class="content-block">
+							<h4>👤 核心用户画像（60%）</h4>
+							<p><strong>单身/独居猫主人</strong> | 25-35岁 | 一二线城市 | 中等以上收入</p>
+							<p>🔸 <strong>痛点</strong>：担心品质安全、需要专业建议、希望便捷复购</p>
+							<p>🔸 <strong>消费行为</strong>：愿意为优质产品支付溢价、易受社交媒体影响</p>
+						</div>
+
+						
+
+						<h3>核心使用场景</h3>
+
+						<div class="content-block">
+							<h4>场景一：首次购买猫咪（高客单价、重决策）</h4>
+							<ol>
+								<li>浏览猫咪档案，筛选品种、价格、距离</li>
+								<li>查看详情（视频、健康记录、父母信息）</li>
+								<li>点击"预约看猫"，选择时间段</li>
+								<li>到店体验，确认健康状态</li>
+								<li>支付定金（<strong>平台托管</strong>）</li>
+								<li>签署电子合同，支付尾款</li>
+								<li>门店交付猫咪+文件（疫苗本、检疫证明、合同）</li>
+								<li>确认收货，评价门店</li>
+								<li>收到新手礼包优惠券，<strong>引导用品复购</strong></li>
+							</ol>
+						</div>
+
+						<figure class="image-container">
+							<img src="../../images/cat_shop/场景1：首次购买猫咪（活体）.png" alt="场景1：首次购买猫咪" style="width: 100%;">
+							<figcaption>场景一：首次购买猫咪（活体交易）</figcaption>
+						</figure>
+
+						<div class="content-block">
+							<h4>场景二：用品复购（高频、低决策）</h4>
+							<ol>
+								<li>收到复购提醒推送</li>
+								<li>浏览推荐商品列表</li>
+								<li>查看商品详情、评价</li>
+								<li>加入购物车</li>
+								<li>一键结算（使用默认地址）</li>
+								<li>收货确认</li>
+							</ol>
+						</div>
+
+						<figure class="image-container">
+							<img src="../../images/cat_shop/场景2：用品复购.png" alt="场景2：用品复购" style="width: 100%;">
+							<figcaption>场景二：用品复购</figcaption>
+						</figure>
+
+						<div class="content-block">
+							<h4>场景三：管理员处理活体纠纷</h4>
+							<ol>
+								<li>收到用户投诉通知</li>
+								<li>查看订单详情和聊天记录</li>
+								<li>联系双方了解情况</li>
+								<li>调取合同条款和证据</li>
+								<li>做出仲裁决定</li>
+								<li>执行赔付或拒绝申请</li>
+								<li>记录信用评分</li>
+							</ol>
+						</div>
+
+						<figure class="image-container">
+							<img src="../../images/cat_shop/场景3：管理员处理活体纠纷.png" alt="场景3：管理员处理活体纠纷" style="width: 100%;">
+							<figcaption>场景三：管理员处理活体纠纷</figcaption>
+						</figure>
+
+						<figure class="image-container">
+							<img src="../../images/cat_shop/用户旅程地图模板.png" alt="用户旅程地图" style="width: 100%;">
+							<figcaption>🗺️ 用户旅程地图：首次购猫全流程（情绪曲线+触点+痛点+机会点）</figcaption>
+						</figure>
+					</section>
+
+					<section class="view-section">
+						<h2>04 产品设计</h2>
+
+						<h3>系统架构</h3>
+						<pre><code>喵星人用品商城
+├── <strong>前台商城</strong>（买家端）
+│   ├── 首页（分类入口、热门推荐、活体精选）
+│   ├── 商品列表/详情（用品筛选、排序、分页）
+│   ├── 猫咪档案（视频、健康记录、门店信息）
+│   ├── 购物车 → 结算流程
+│   └── 用户中心（订单、地址、预约记录）
+│
+├── <strong>活体交易</strong>（O2O核心）
+│   ├── 猫咪展示（档案页、门店关联）
+│   ├── 预约系统（时段选择、门店确认）
+│   ├── 定金支付（<strong>平台托管</strong>、72小时锁定）
+│   ├── 电子合同（条款确认、双方签名）
+│   ├── 交付确认（文件清单、收货确认）
+│   └── 质保服务（理赔申请、平台审核）
+│
+├── <strong>门店后台</strong>（卖家端）
+│   ├── 猫咪管理（上下架、库存、档案编辑）
+│   ├── 预约管理（排期设置、确认/拒绝）
+│   ├── 订单处理（定金确认、尾款收取）
+│   └── 数据统计（浏览量、预约率、成交率）
+│
+└── <strong>管理后台</strong>（平台端）
+    ├── 订单管理（用品/活体订单、状态筛选）
+    ├── 门店审核（资质核验、入驻审批、保证金）
+    ├── 纠纷仲裁（理赔审核、赔付执行、信用记录）
+    ├── 报表导出（销售/用户/门店数据）
+    └── 权限控制（RBAC角色管理）</code></pre>
+
+						<!-- 【占位】系统架构图 -->
+						<figure class="image-container">
+							<img src="../../images/cat_shop/系统架构.png" alt="系统架构图" style="width: 100%;">
+							<figcaption>系统架构图：前台商城 + 活体交易 + 门店后台 + 管理后台</figcaption>
+						</figure>
+
+						<h3>核心功能设计亮点</h3>
+
+						<div class="content-block">
+							<h4>亮点一：猫咪档案透明化（信任建立）</h4>
+							<ul>
+								<li>必须上传<strong>≥30秒真实视频</strong>（展示动态、进食、互动）</li>
+								<li>禁止网图/过度滤镜，图片需含<strong>时间水印</strong></li>
+								<li>品种猫展示<strong>血统证书编号</strong>（支持官网验证）</li>
+								<li><strong>芯片号必填</strong>，支持扫码验证真伪</li>
+								<li>疫苗记录附<strong>医院盖章或疫苗本照片</strong></li>
+							</ul>
+						</div>
+
+						<div class="content-block">
+							<h4>亮点二：资金托管+电子合同（风险管控）</h4>
+							<ul>
+								<li>定金支付至<strong>平台账户</strong>，非直接给门店</li>
+								<li>72小时锁定期，超时自动释放</li>
+								<li>电子合同明确：健康保证（7天猫瘟/15天传腹）、售后范围、争议解决</li>
+								<li>交付文件清单：检疫证明、疫苗本、血统证书、合同、芯片证明</li>
+							</ul>
+						</div>
+
+						<div class="content-block">
+							<h4>亮点三：门店准入机制（品质把控）</h4>
+							<table class="data-table">
+								<tr>
+									<th>审核材料</th>
+									<th>要求</th>
+									<th>审核方式</th>
+									<th>保证金</th>
+								</tr>
+								<tr>
+									<td>营业执照</td>
+									<td>含"宠物销售"或"动物养殖"</td>
+									<td>工商系统核验</td>
+									<td rowspan="5">¥5,000-20,000<br>（按规模）</td>
+								</tr>
+								<tr>
+									<td>动物防疫条件合格证</td>
+									<td>有效期内</td>
+									<td>原件拍照+编号核验</td>
+								</tr>
+								<tr>
+									<td>繁育资质证明</td>
+									<td>CFA/TICA注册或种畜禽许可证</td>
+									<td>官网/发证机构核实</td>
+								</tr>
+								<tr>
+									<td>门店实景照片</td>
+									<td>饲养环境、卫生条件</td>
+									<td>视频连线抽查</td>
+								</tr>
+								<tr>
+									<td>法人身份证</td>
+									<td>正反面</td>
+									<td>人脸识别比对</td>
+								</tr>
+							</table>
+						</div>
+					</section>
+
+					<section class="view-section">
+						<h2>05 核心流程设计</h2>
+
+						<div class="flowchart-grid">
+							<div>
+								<h3>活体交易全流程</h3>
+								<figure class="image-container flowchart">
+									<img src="../../images/cat_shop/活体交易全流程.png" alt="活体交易全流程">
+									<figcaption>活体交易全流程：浏览→预约/付定金→到店→满意/不满意分支→付尾款→签合同→交付→评价→质保</figcaption>
+								</figure>
+							</div>
+
+							<div>
+								<h3>用品购物流程</h3>
+								<figure class="image-container flowchart">
+									<img src="../../images/cat_shop/用户购物流程.png" alt="用户购物流程">
+									<figcaption>用户购物流程（用品）：浏览→筛选→详情→加购→结算→支付→收货→评价</figcaption>
+								</figure>
+							</div>
+
+							<div>
+								<h3>订单管理流程</h3>
+								<figure class="image-container flowchart">
+									<img src="../../images/cat_shop/管理员处理订单流程（用品）.png" alt="管理员处理订单流程">
+									<figcaption>管理员处理订单流程：订单审核→发货→物流跟踪→完成</figcaption>
+								</figure>
+							</div>
+
+							<div>
+								<h3>理赔处理流程</h3>
+								<figure class="image-container flowchart">
+									<img src="../../images/cat_shop/理赔处理流程.png" alt="理赔处理流程">
+									<figcaption>理赔处理流程：申请→审核→赔付→结案</figcaption>
+								</figure>
+							</div>
+
+							<div>
+								<h3>门店入驻审核流程</h3>
+								<figure class="image-container flowchart">
+									<img src="../../images/cat_shop/门店入驻审核流程.png" alt="门店入驻审核流程">
+									<figcaption>门店入驻审核流程：提交申请→资料审核→实地考察→缴纳保证金→开通权限</figcaption>
+								</figure>
+							</div>
+						</div>
+					</section>
+
+					<section class="view-section">
+						<h2>06 原型设计</h2>
+
+						<h3>前台页面原型</h3>
+						<div class="wireframe-grid">
+							<div class="wireframe-item">
+								<img src="../../images/cat_shop/首页.png" alt="首页原型" style="width: 100%;">
+								<figcaption>首页：分类入口 + Banner + 活体精选</figcaption>
+							</div>
+							<div class="wireframe-item">
+								<img src="../../images/cat_shop/猫咪档案页.png" alt="猫咪档案页原型" style="width: 100%;">
+								<figcaption>猫咪档案：视频 + 健康记录 + 门店信息</figcaption>
+							</div>
+							<div class="wireframe-item">
+								<img src="../../images/cat_shop/商品列表页（用品）.png" alt="商品列表页" style="width: 100%;">
+								<figcaption>商品列表：筛选 + 排序 + 分页</figcaption>
+							</div>
+							<div class="wireframe-item">
+								<img src="../../images/cat_shop/商品详情页（用品）1.png" alt="商品详情页" style="width: 100%;">
+								<figcaption>商品详情：图文介绍 + 规格选择</figcaption>
+							</div>
+							<div class="wireframe-item">
+								<img src="../../images/cat_shop/购物车页.png" alt="购物车页" style="width: 100%;">
+								<figcaption>购物车：商品管理 + 结算入口</figcaption>
+							</div>
+							<div class="wireframe-item">
+								<img src="../../images/cat_shop/结算支付页1.png" alt="结算支付页" style="width: 100%;">
+								<figcaption>结算支付：地址选择 + 支付方式</figcaption>
+							</div>
+							<div class="wireframe-item">
+								<img src="../../images/cat_shop/订单成功页.png" alt="订单成功页" style="width: 100%;">
+								<figcaption>订单成功：订单信息 + 操作引导</figcaption>
+							</div>
+							<div class="wireframe-item">
+								<img src="../../images/cat_shop/front_Myorders.png" alt="我的订单页" style="width: 100%;">
+								<figcaption>我的订单：订单列表 + 状态筛选</figcaption>
+							</div>
+							<div class="wireframe-item">
+								<img src="../../images/cat_shop/门店详情1.png" alt="门店详情页" style="width: 100%;">
+								<figcaption>门店详情：资质展示 + 在售猫咪</figcaption>
+							</div>
+							<div class="wireframe-item">
+								<img src="../../images/cat_shop/front_login.png" alt="登录页" style="width: 100%;">
+								<figcaption>用户登录：账号密码 + 验证码</figcaption>
+							</div>
+							<div class="wireframe-item">
+								<img src="../../images/cat_shop/front_register.png" alt="注册页" style="width: 100%;">
+								<figcaption>用户注册：信息填写 + 协议确认</figcaption>
+							</div>
+						</div>
+
+						<h3>后台管理系统截图（我负责开发）</h3>
+						<div class="wireframe-grid">
+							<div class="wireframe-item">
+								<img src="../../images/cat_shop/backend_admin_LogIn.png" alt="后台登录页" style="width: 100%;">
+								<figcaption>后台登录：Session验证 + 白名单机制</figcaption>
+							</div>
+							<div class="wireframe-item">
+								<img src="../../images/cat_shop/admin_index.png" alt="后台首页" style="width: 100%;">
+								<figcaption>数据概览：订单统计 + 待处理提醒</figcaption>
+							</div>
+							<div class="wireframe-item">
+								<img src="../../images/cat_shop/admin_type_list.png" alt="分类列表页" style="width: 100%;">
+								<figcaption>分类管理：列表展示</figcaption>
+							</div>
+							<div class="wireframe-item">
+								<img src="../../images/cat_shop/admin_type_add.png" alt="添加分类页" style="width: 100%;">
+								<figcaption>分类管理：添加分类</figcaption>
+							</div>
+							<div class="wireframe-item">
+								<img src="../../images/cat_shop/admin_type_edit.png" alt="编辑分类页" style="width: 100%;">
+								<figcaption>分类管理：编辑分类</figcaption>
+							</div>
+							<div class="wireframe-item">
+								<img src="../../images/cat_shop/admin_type_search.png" alt="搜索分类页" style="width: 100%;">
+								<figcaption>分类管理：搜索筛选</figcaption>
+							</div>
+							<div class="wireframe-item">
+								<img src="../../images/cat_shop/后台-订单管理.png" alt="订单管理页" style="width: 100%;">
+								<figcaption>订单管理：订单列表 + 状态处理</figcaption>
+							</div>
+						</div>
+					</section>
+
+					<section class="view-section">
+						<h2>07 数据指标体系</h2>
+
+						<div class="highlight-box">
+							<p>🌟 <strong>北极星指标：月度复购率 ≥ 25%</strong></p>
+							<p style="margin-top: 0.5em; font-weight: normal;">月度内再次购买的用户占比 —— 衡量用户认可度和商业模式可持续性</p>
+						</div>
+
+						<h3>核心指标看板</h3>
+						<div class="metric-cards">
+							<div class="metric-card">
+								<div class="number">≥3%</div>
+								<div class="label">订单转化率</div>
+							</div>
+							<div class="metric-card">
+								<div class="number">≥40%</div>
+								<div class="label">7日留存率</div>
+							</div>
+							<div class="metric-card">
+								<div class="number">≥40%</div>
+								<div class="label">活体GMV占比</div>
+							</div>
+							<div class="metric-card">
+								<div class="number">≥70%</div>
+								<div class="label">定金→尾款转化率</div>
+							</div>
+							<div class="metric-card">
+								<div class="number">≤3%</div>
+								<div class="label">售后纠纷率</div>
+							</div>
+							<div class="metric-card">
+								<div class="number">≥60</div>
+								<div class="label">买家NPS满意度</div>
+							</div>
+						</div>
+
+						
+
+						<h3>关键埋点事件</h3>
+						<table class="data-table">
+							<tr>
+								<th>事件名</th>
+								<th>触发时机</th>
+								<th>用途</th>
+							</tr>
+							<tr><td><code>product_view</code></td><td>进入商品详情页</td><td>商品热度分析</td></tr>
+							<tr><td><code>add_to_cart</code></td><td>点击加入购物车</td><td>加购率计算</td></tr>
+							<tr><td><code>begin_checkout</code></td><td>进入结算页</td><td>漏斗分析</td></tr>
+							<tr><td><code>cat_appointment</code></td><td>点击预约看猫</td><td>预约转化率</td></tr>
+							<tr><td><code>cat_deposit_pay</code></td><td>支付定金</td><td>定金转化率</td></tr>
+							<tr><td><code>contract_sign</code></td><td>签署电子合同</td><td>合同完成率</td></tr>
+							<tr><td><code>claim_submit</code></td><td>提交理赔申请</td><td>售后质量监控</td></tr>
+						</table>
+					</section>
+
+					<section class="view-section">
+						<h2>08 版本规划</h2>
+
+						<div class="timeline">
+							<div class="timeline-item">
+								<span class="version">MVP</span>
+								<span class="time">第1-4周</span>
+								<p><span class="tag tag-p0">P0</span> 用品商城核心功能：商品浏览、购物车、注册登录、下单流程、邮件通知</p>
+							</div>
+							<div class="timeline-item">
+								<span class="version">v1.1</span>
+								<span class="time">第5-6周</span>
+								<p><span class="tag tag-p1">P1</span> 管理后台：订单处理、报表导出、RBAC权限控制</p>
+							</div>
+							<div class="timeline-item">
+								<span class="version">v1.2</span>
+								<span class="time">第7-8周</span>
+								<p><span class="tag tag-p0">P0</span> 活体销售：猫咪展示、门店入驻审核、预约系统、定金支付</p>
+							</div>
+							<div class="timeline-item">
+								<span class="version">v1.3</span>
+								<span class="time">第9-10周</span>
+								<p><span class="tag tag-p1">P1</span> 交易闭环：电子合同、尾款支付、交付确认、质保理赔系统</p>
+							</div>
+							<div class="timeline-item">
+								<span class="version">v1.4</span>
+								<span class="time">第11-12周</span>
+								<p><span class="tag tag-p2">P2</span> 门店赋能：血统溯源、芯片绑定、门店后台、数据可视化</p>
+							</div>
+							<div class="timeline-item">
+								<span class="version">v1.5</span>
+								<span class="time">第13-14周</span>
+								<p><span class="tag tag-p2">P2</span> 智能增长：收藏推荐、交叉营销（用品+活体联动）</p>
+							</div>
+						</div>
+					</section>
+
+					<section class="view-section">
+						<h2>09 项目成果与反思</h2>
+
+						<div class="highlight-box">
+							<p>🏆 <strong>核心成果</strong></p>
+							<ul style="margin-top: 0.5em; font-weight: normal;">
+								<li>完成<strong>13个后台管理页面</strong>的全栈开发（Java EE + MySQL）</li>
+								<li>输出完整<strong>PRD文档 v3.0</strong>（10000+字，覆盖背景/需求/设计/流程/原型/数据/异常/版本）</li>
+								<li>设计<strong>O2O活体交易全流程</strong>：从预约到质保的8步闭环</li>
+								<li>建立<strong>6大核心指标</strong>的数据监控体系</li>
+							</ul>
+						</div>
+
+						<div class="content-block">
+							<h4>💡 关键收获</h4>
+							<ul>
+								<li><strong>业务抽象能力</strong>：将"卖猫"拆解为信息展示→信任建立→交易履约→售后保障四层逻辑</li>
+								<li><strong>风险意识</strong>：活体交易涉及资金托管、合同合规、动物保护，需提前设计兜底机制</li>
+								<li><strong>数据驱动思维</strong>：每个功能设计都对应可量化的指标，而非拍脑袋</li>
+							</ul>
+						</div>
+
+						<div class="content-block">
+							<h4>🔧 技术实践</h4>
+							<ul>
+								<li>RBAC权限控制：基于角色的访问控制，区分超级管理员/运营/审核/客服/财务</li>
+								<li>订单状态机：待付款→已付款→已发货→已完成，支持取消操作</li>
+								<li>Session验证 + 白名单机制：统一登录拦截，避免重复代码</li>
+							</ul>
+						</div>
+
+						<div class="content-block">
+							<h4>🎯 如果重新做，我会优化</h4>
+							<ul>
+								<li>补充用户调研数据：当前画像基于二手资料，需补充一手访谈</li>
+								<li>增加技术可行性评估：电子合同、资金托管需法务/支付牌照支持</li>
+								<li>补充成本估算：开发周期有了，但人力/服务器/营销成本未细化</li>
+							</ul>
+						</div>
+					</section>
+
+					<section class="view-section">
+						<h2>10 相关链接</h2>
+						<div class="content-block">
+							<p>📎 <strong>GitHub仓库：</strong><a href="https://github.com/1542-qyq/catstore-java-web" target="_blank">github.com/1542-qyq/catstore-java-web</a></p>
+							<p>📄 <strong>完整PRD文档：</strong><a href="../../assets/docs/喵星人商城PRD.docx" download>喵星人商城 PRD</a></p>
+							<p>🌐 <strong>原型图网页预览：</strong><a href="../../assets/axure-cat-shop/首页.html" >喵星人商城首页（Axure模拟）（包含首页、猫咪档案页和登录页面（用户名：qyq,密码：123456））</a></p>
+						</div>					
+					</section>
+
+					<div class="project-nav">
+						<div class="back-link">
+							<a href="../../index.html">← 返回作品集首页</a>
+						</div>
+						<div class="nav-links">
+							<a href="../dev/cat-shop.html">查看研发视角 →</a>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+		<script src="../../assets/js/jquery.min.js"></script>
+		<script src="../../assets/js/browser.min.js"></script>
+		<script src="../../assets/js/breakpoints.min.js"></script>
+		<script src="../../assets/js/util.js"></script>
+		<script src="../../assets/js/main.js"></script>
+	</body>
+</html>

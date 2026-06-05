@@ -1,0 +1,117 @@
+{
+  "skill_name": "interview-prep",
+  "evals": [
+    {
+      "id": 0,
+      "eval_name": "kuai-zhun-ban-tomorrow",
+      "prompt": "我明天下午两点有个字节跳动抖音产品经理的面试，时间很紧，帮我快速准备一下。\n\n简历内容如下：\n何子岚，网易互娱高级系统策划（3年+）\n- 异步捉迷藏UGC系统：设计非对称博弈机制+内容编辑器+分发算法（时间衰减+热度加权+难度系数），日参与度8万，同类玩法4倍\n- 春节留存活动：自动挂机+宠物情感交互+组队激励重构，首日参与人数+19%，在线时长+60%\n- 独立运营小红书AI账号「长尾敲字员」，5000+粉丝，3.2万赞藏，深度使用测评Claude/Cursor/NotebookLM等LLM工具\n\nJD：\n岗位：抖音社区产品经理\n职责：1. 负责抖音社区核心功能设计与迭代 2. 深度研究用户需求，制定产品策略 3. 与技术/运营团队协作推动产品落地\n要求：1. 3年以上用户产品经验 2. 有社区/UGC产品经验者优先 3. 数据驱动，逻辑思维强",
+      "expected_output": "识别为速准版（面试明天）；跳过深度调研；在对话中直接输出：公司速览、JD解读+逐条匹配分析（含简历依据列）、自我介绍（≤250字）、2个STAR项目、高频问题+参考回答、Gap清单（仅优先级1）；全程输出到对话不保存文件；逐条匹配分析必须包含「简历依据」列且不强行给没有证据的条目打分",
+      "assertions": [
+        {
+          "name": "triggers_speed_mode",
+          "description": "识别出面试时间是明天，进入速准版模式而非标准版"
+        },
+        {
+          "name": "output_to_conversation",
+          "description": "输出在对话中展示，不调用Write工具保存文件"
+        },
+        {
+          "name": "self_intro_under_250_chars",
+          "description": "自我介绍字数不超过250字"
+        },
+        {
+          "name": "matching_has_evidence_column",
+          "description": "逐条匹配分析包含「简历依据」列，有明确的证据引用"
+        },
+        {
+          "name": "no_forced_rating_without_evidence",
+          "description": "没有证据支撑的JD条目，匹配度标注为「—」而非强行给✅/⚠️/❌"
+        },
+        {
+          "name": "gap_list_with_checkboxes",
+          "description": "Gap清单使用checkbox格式（- [ ]）并按优先级分组"
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "eval_name": "module-mode-self-intro-only",
+      "prompt": "帮我写一个针对小红书社区产品经理岗位的自我介绍，公司是小红书。\n\n我的简历：\n张晓明，腾讯微信事业群产品经理（2年）\n- 负责微信朋友圈广告产品迭代，推动CTR提升23%\n- 主导微信搜索功能改版，MAU从2000万提升至3500万\n- 独立完成竞品分析报告（抖音/B站/微博），被产品总监采纳为年度策略参考\n\nJD：负责小红书社区核心产品设计，研究用户需求，提升社区活跃度和内容质量。要求：2年以上社区/内容产品经验，有图文/短视频产品经验优先。",
+      "expected_output": "识别为模块模式（只需要自我介绍）；只收集必要信息后直接生成自我介绍；不跑完整调研流程；自我介绍≤250字；内容针对小红书社区PM岗位编排；在对话中输出",
+      "assertions": [
+        {
+          "name": "triggers_module_mode",
+          "description": "识别为模块模式，不执行完整调研流程"
+        },
+        {
+          "name": "only_generates_self_intro",
+          "description": "只输出自我介绍，不生成完整7章文档"
+        },
+        {
+          "name": "self_intro_under_250_chars",
+          "description": "自我介绍字数不超过250字"
+        },
+        {
+          "name": "tailored_to_job",
+          "description": "自我介绍内容针对小红书社区PM岗位特点编排，不是通用模板"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "eval_name": "standard-mode-with-urls",
+      "prompt": "帮我做面试准备，面试是下周三，公司是美团，岗位是增长产品经理。输出直接显示在对话里。\n\n简历（粘贴）：\n李雯，滴滴出行数据分析师（2年）\n- 负责司机端留存分析，建立流失预警模型，预测准确率82%，推动运营干预使D30留存提升8%\n- 设计司机激励积分体系，参与用户分层策略制定\n- 熟悉SQL/Python，有A/B实验经验（设计过司机补贴方案的随机对照实验）\n\nJD：\n美团增长产品经理\n职责：1. 负责美团核心业务用户增长策略设计，包括拉新、激活、留存、商业化各阶段 2. 通过数据分析发现增长机会，设计并推动A/B实验验证方案 3. 与算法/运营/市场团队协作，推动增长项目落地\n要求：1. 2年以上产品/数据/运营经验 2. 数据分析能力强，熟悉增长模型 3. 有A/B实验设计经验加分 4. 互联网行业经验优先",
+      "expected_output": "识别为标准版（下周三=5-7天后）；进行真实网络调研并附上来源URL；生成完整7章文档输出到对话；一、公司调研中的信息有真实URL来源标注；逐条匹配分析含简历依据列且证据具体；五、高频问题包含增长PM专项题（来自role-types.md方向B）；附Gap清单含checkbox+优先级分组",
+      "assertions": [
+        {
+          "name": "standard_mode_triggered",
+          "description": "识别为标准版，执行完整调研流程"
+        },
+        {
+          "name": "web_research_with_urls",
+          "description": "公司/产品调研部分包含至少2个真实来源URL"
+        },
+        {
+          "name": "growth_pm_questions_included",
+          "description": "高频问题包含增长PM专项题，如AARRR漏斗、A/B实验设计等"
+        },
+        {
+          "name": "evidence_based_matching",
+          "description": "逐条匹配分析的「简历依据」列有具体引用（非「无」一概而论）"
+        },
+        {
+          "name": "gap_list_format",
+          "description": "Gap清单包含checkbox（- [ ]）和优先级1/2/3分组"
+        },
+        {
+          "name": "output_to_conversation",
+          "description": "文档输出在对话中，未调用Write工具"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "eval_name": "no-resume-provided",
+      "prompt": "我要去面试腾讯的产品运营岗，我还没准备简历，但JD我有。面试大概两周后。\n\nJD：\n腾讯互娱产品运营专员\n职责：1. 负责游戏社区内容运营策略制定与执行 2. 分析用户行为数据，制定用户分层运营方案 3. 策划线上活动，提升社区活跃度和用户留存 4. 与产品/研发团队协同，推动运营功能需求落地\n要求：1. 1年以上互联网运营经验 2. 有游戏/社区/内容运营经验优先 3. 数据分析能力强 4. 有活动策划和执行经验",
+      "expected_output": "识别暂无简历；不报错，用「暂无简历，仅作通用建议」继续执行；逐条匹配分析中所有条目的「简历依据」填「暂无简历，无法评估」，匹配度全部标「—」；不强行伪造匹配；生成通用版自我介绍框架（带[填入你的X经历]占位符）；Gap清单包含「补充简历」作为优先级1条目",
+      "assertions": [
+        {
+          "name": "handles_missing_resume",
+          "description": "无简历情况下不报错，继续正常执行流程"
+        },
+        {
+          "name": "no_fabricated_matching",
+          "description": "逐条匹配分析不捏造证据，所有匹配度均为「—」"
+        },
+        {
+          "name": "self_intro_has_placeholders",
+          "description": "自我介绍包含[占位符]格式，提示用户填入自己的经历"
+        },
+        {
+          "name": "gap_list_includes_resume",
+          "description": "Gap清单的优先级1包含「完善简历」或「补充个人经历」相关条目"
+        }
+      ]
+    }
+  ]
+}
