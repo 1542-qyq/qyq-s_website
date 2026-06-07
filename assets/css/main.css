@@ -128,7 +128,7 @@ em, i {
   font-style: italic; }
 
 p {
-  margin: 0 0 2em 0; }
+  margin: 0 0 1em 0; }
 
 h1, h2, h3, h4, h5, h6 {
   color: #2d2d26;
@@ -1874,7 +1874,7 @@ button,
     #main > .inner {
       padding: 0 4em 0.1em 4em ; }
       #main > .inner > section {
-        padding: 4em 0 2em 0 ; } }
+        padding: 1em 0 2em 0 ; } }
   @media screen and (max-width: 736px) {
     #main > .inner {
       padding: 0 2em 0.1em 2em ; }
@@ -2271,6 +2271,9 @@ button,
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
+  width: 100%;
+  max-width: 100%;
+  min-height: 850px;
 }
 
 .project-card:hover {
@@ -2311,7 +2314,7 @@ button,
 }
 
 .project-meta {
-  margin-bottom: 1em;
+  margin-bottom: 0.5em;
 }
 
 .project-role {
@@ -2325,8 +2328,8 @@ button,
 }
 
 .project-section {
-  margin-bottom: 1em;
-  flex-grow: 1;
+  margin-bottom: 0.75em;
+  flex-grow: 0;
 }
 
 .project-section:last-of-type {

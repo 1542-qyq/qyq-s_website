@@ -273,3 +273,34 @@ body {
 .posts.more-projects.expanded {
   display: flex !important;
 }
+
+/* 减小 section 的上下内边距 */
+#main > .inner > section {
+  padding: -0.3em 0 2em 0 !important;
+}
+
+/* Lightbox 关闭按钮强制样式 */
+#lightbox .lightbox-close,
+.lightbox .lightbox-close,
+button.lightbox-close {
+  background: transparent !important;
+  color: white !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  width: 50px !important;
+  height: 50px !important;
+  font-size: 40px !important;
+  line-height: 1 !important;
+  -moz-appearance: none !important;
+  -webkit-appearance: none !important;
+  -ms-appearance: none !important;
+  appearance: none !important;
+}
+
+#lightbox .lightbox-close:hover,
+.lightbox .lightbox-close:hover,
+button.lightbox-close:hover {
+  background: transparent !important;
+  opacity: 0.7 !important;
+}
